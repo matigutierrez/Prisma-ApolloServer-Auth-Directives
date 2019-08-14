@@ -1,0 +1,12 @@
+enum Role {
+  ADMIN
+  REVIEWER
+  USER
+}
+
+type User {
+  id: ID! @id
+  email: String! @unique
+  password: String!
+  role: Role! @default(value: USER)
+}
