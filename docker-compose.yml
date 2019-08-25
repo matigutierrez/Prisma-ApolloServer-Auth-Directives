@@ -27,7 +27,7 @@ services:
     ports:
     - "4000:4000"
     volumes:
-    - ./:/app
+    - .:/app
     - /app/node_modules
 volumes:
   mysql: ~

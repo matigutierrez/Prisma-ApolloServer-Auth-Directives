@@ -6,6 +6,8 @@ import cors from 'cors'
 import express from 'express'
 import AuthDirective from './graphql/directives/AuthDirective'
 import IsAuthDirective from './graphql/directives/IsAuthDirective';
+import ConstraintDirective from './graphql/directives/ConstraintDirective';
+
 
 const server = new ApolloServer({
   typeDefs,
@@ -15,6 +17,7 @@ const server = new ApolloServer({
     authorized: AuthDirective,
     authenticated: AuthDirective,
     isAuth: IsAuthDirective,
+    constraint: ConstraintDirective,
   },
   context: ({ req }) => {
     const token = req.headers.authorization || '';
