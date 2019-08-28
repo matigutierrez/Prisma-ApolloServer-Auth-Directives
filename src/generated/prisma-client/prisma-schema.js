@@ -3,17 +3,2052 @@ module.exports = {
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-/* GraphQL */ `type AggregateUser {
+/* GraphQL */ `type AggregateAssessment {
   count: Int!
+}
+
+type AggregateCategory {
+  count: Int!
+}
+
+type AggregateCity {
+  count: Int!
+}
+
+type AggregateDifficulty {
+  count: Int!
+}
+
+type AggregateEstablishment {
+  count: Int!
+}
+
+type AggregateEstablishmentType {
+  count: Int!
+}
+
+type AggregateGravity {
+  count: Int!
+}
+
+type AggregateIncidence {
+  count: Int!
+}
+
+type AggregateIncidenceType {
+  count: Int!
+}
+
+type AggregateStreet {
+  count: Int!
+}
+
+type AggregateUser {
+  count: Int!
+}
+
+type Assessment {
+  id: ID!
+  score: Int!
+  description: String
+  user: User!
+  establishment: Establishment!
+}
+
+type AssessmentConnection {
+  pageInfo: PageInfo!
+  edges: [AssessmentEdge]!
+  aggregate: AggregateAssessment!
+}
+
+input AssessmentCreateInput {
+  id: ID
+  score: Int!
+  description: String
+  user: UserCreateOneWithoutAssessmentsInput!
+  establishment: EstablishmentCreateOneWithoutAssessmentsInput!
+}
+
+input AssessmentCreateManyWithoutEstablishmentInput {
+  create: [AssessmentCreateWithoutEstablishmentInput!]
+  connect: [AssessmentWhereUniqueInput!]
+}
+
+input AssessmentCreateManyWithoutUserInput {
+  create: [AssessmentCreateWithoutUserInput!]
+  connect: [AssessmentWhereUniqueInput!]
+}
+
+input AssessmentCreateWithoutEstablishmentInput {
+  id: ID
+  score: Int!
+  description: String
+  user: UserCreateOneWithoutAssessmentsInput!
+}
+
+input AssessmentCreateWithoutUserInput {
+  id: ID
+  score: Int!
+  description: String
+  establishment: EstablishmentCreateOneWithoutAssessmentsInput!
+}
+
+type AssessmentEdge {
+  node: Assessment!
+  cursor: String!
+}
+
+enum AssessmentOrderByInput {
+  id_ASC
+  id_DESC
+  score_ASC
+  score_DESC
+  description_ASC
+  description_DESC
+}
+
+type AssessmentPreviousValues {
+  id: ID!
+  score: Int!
+  description: String
+}
+
+input AssessmentScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  score: Int
+  score_not: Int
+  score_in: [Int!]
+  score_not_in: [Int!]
+  score_lt: Int
+  score_lte: Int
+  score_gt: Int
+  score_gte: Int
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  AND: [AssessmentScalarWhereInput!]
+  OR: [AssessmentScalarWhereInput!]
+  NOT: [AssessmentScalarWhereInput!]
+}
+
+type AssessmentSubscriptionPayload {
+  mutation: MutationType!
+  node: Assessment
+  updatedFields: [String!]
+  previousValues: AssessmentPreviousValues
+}
+
+input AssessmentSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: AssessmentWhereInput
+  AND: [AssessmentSubscriptionWhereInput!]
+  OR: [AssessmentSubscriptionWhereInput!]
+  NOT: [AssessmentSubscriptionWhereInput!]
+}
+
+input AssessmentUpdateInput {
+  score: Int
+  description: String
+  user: UserUpdateOneRequiredWithoutAssessmentsInput
+  establishment: EstablishmentUpdateOneRequiredWithoutAssessmentsInput
+}
+
+input AssessmentUpdateManyDataInput {
+  score: Int
+  description: String
+}
+
+input AssessmentUpdateManyMutationInput {
+  score: Int
+  description: String
+}
+
+input AssessmentUpdateManyWithoutEstablishmentInput {
+  create: [AssessmentCreateWithoutEstablishmentInput!]
+  delete: [AssessmentWhereUniqueInput!]
+  connect: [AssessmentWhereUniqueInput!]
+  set: [AssessmentWhereUniqueInput!]
+  disconnect: [AssessmentWhereUniqueInput!]
+  update: [AssessmentUpdateWithWhereUniqueWithoutEstablishmentInput!]
+  upsert: [AssessmentUpsertWithWhereUniqueWithoutEstablishmentInput!]
+  deleteMany: [AssessmentScalarWhereInput!]
+  updateMany: [AssessmentUpdateManyWithWhereNestedInput!]
+}
+
+input AssessmentUpdateManyWithoutUserInput {
+  create: [AssessmentCreateWithoutUserInput!]
+  delete: [AssessmentWhereUniqueInput!]
+  connect: [AssessmentWhereUniqueInput!]
+  set: [AssessmentWhereUniqueInput!]
+  disconnect: [AssessmentWhereUniqueInput!]
+  update: [AssessmentUpdateWithWhereUniqueWithoutUserInput!]
+  upsert: [AssessmentUpsertWithWhereUniqueWithoutUserInput!]
+  deleteMany: [AssessmentScalarWhereInput!]
+  updateMany: [AssessmentUpdateManyWithWhereNestedInput!]
+}
+
+input AssessmentUpdateManyWithWhereNestedInput {
+  where: AssessmentScalarWhereInput!
+  data: AssessmentUpdateManyDataInput!
+}
+
+input AssessmentUpdateWithoutEstablishmentDataInput {
+  score: Int
+  description: String
+  user: UserUpdateOneRequiredWithoutAssessmentsInput
+}
+
+input AssessmentUpdateWithoutUserDataInput {
+  score: Int
+  description: String
+  establishment: EstablishmentUpdateOneRequiredWithoutAssessmentsInput
+}
+
+input AssessmentUpdateWithWhereUniqueWithoutEstablishmentInput {
+  where: AssessmentWhereUniqueInput!
+  data: AssessmentUpdateWithoutEstablishmentDataInput!
+}
+
+input AssessmentUpdateWithWhereUniqueWithoutUserInput {
+  where: AssessmentWhereUniqueInput!
+  data: AssessmentUpdateWithoutUserDataInput!
+}
+
+input AssessmentUpsertWithWhereUniqueWithoutEstablishmentInput {
+  where: AssessmentWhereUniqueInput!
+  update: AssessmentUpdateWithoutEstablishmentDataInput!
+  create: AssessmentCreateWithoutEstablishmentInput!
+}
+
+input AssessmentUpsertWithWhereUniqueWithoutUserInput {
+  where: AssessmentWhereUniqueInput!
+  update: AssessmentUpdateWithoutUserDataInput!
+  create: AssessmentCreateWithoutUserInput!
+}
+
+input AssessmentWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  score: Int
+  score_not: Int
+  score_in: [Int!]
+  score_not_in: [Int!]
+  score_lt: Int
+  score_lte: Int
+  score_gt: Int
+  score_gte: Int
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  user: UserWhereInput
+  establishment: EstablishmentWhereInput
+  AND: [AssessmentWhereInput!]
+  OR: [AssessmentWhereInput!]
+  NOT: [AssessmentWhereInput!]
+}
+
+input AssessmentWhereUniqueInput {
+  id: ID
 }
 
 type BatchPayload {
   count: Long!
 }
 
+type Category {
+  id: ID!
+  name: String!
+  inctypes(where: IncidenceTypeWhereInput, orderBy: IncidenceTypeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [IncidenceType!]
+}
+
+type CategoryConnection {
+  pageInfo: PageInfo!
+  edges: [CategoryEdge]!
+  aggregate: AggregateCategory!
+}
+
+input CategoryCreateInput {
+  id: ID
+  name: String!
+  inctypes: IncidenceTypeCreateManyWithoutCategoryInput
+}
+
+input CategoryCreateOneWithoutInctypesInput {
+  create: CategoryCreateWithoutInctypesInput
+  connect: CategoryWhereUniqueInput
+}
+
+input CategoryCreateWithoutInctypesInput {
+  id: ID
+  name: String!
+}
+
+type CategoryEdge {
+  node: Category!
+  cursor: String!
+}
+
+enum CategoryOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+}
+
+type CategoryPreviousValues {
+  id: ID!
+  name: String!
+}
+
+type CategorySubscriptionPayload {
+  mutation: MutationType!
+  node: Category
+  updatedFields: [String!]
+  previousValues: CategoryPreviousValues
+}
+
+input CategorySubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: CategoryWhereInput
+  AND: [CategorySubscriptionWhereInput!]
+  OR: [CategorySubscriptionWhereInput!]
+  NOT: [CategorySubscriptionWhereInput!]
+}
+
+input CategoryUpdateInput {
+  name: String
+  inctypes: IncidenceTypeUpdateManyWithoutCategoryInput
+}
+
+input CategoryUpdateManyMutationInput {
+  name: String
+}
+
+input CategoryUpdateOneRequiredWithoutInctypesInput {
+  create: CategoryCreateWithoutInctypesInput
+  update: CategoryUpdateWithoutInctypesDataInput
+  upsert: CategoryUpsertWithoutInctypesInput
+  connect: CategoryWhereUniqueInput
+}
+
+input CategoryUpdateWithoutInctypesDataInput {
+  name: String
+}
+
+input CategoryUpsertWithoutInctypesInput {
+  update: CategoryUpdateWithoutInctypesDataInput!
+  create: CategoryCreateWithoutInctypesInput!
+}
+
+input CategoryWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  inctypes_every: IncidenceTypeWhereInput
+  inctypes_some: IncidenceTypeWhereInput
+  inctypes_none: IncidenceTypeWhereInput
+  AND: [CategoryWhereInput!]
+  OR: [CategoryWhereInput!]
+  NOT: [CategoryWhereInput!]
+}
+
+input CategoryWhereUniqueInput {
+  id: ID
+}
+
+type City {
+  id: ID!
+  name: String!
+  streets(where: StreetWhereInput, orderBy: StreetOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Street!]
+}
+
+type CityConnection {
+  pageInfo: PageInfo!
+  edges: [CityEdge]!
+  aggregate: AggregateCity!
+}
+
+input CityCreateInput {
+  id: ID
+  name: String!
+  streets: StreetCreateManyWithoutCityInput
+}
+
+input CityCreateOneWithoutStreetsInput {
+  create: CityCreateWithoutStreetsInput
+  connect: CityWhereUniqueInput
+}
+
+input CityCreateWithoutStreetsInput {
+  id: ID
+  name: String!
+}
+
+type CityEdge {
+  node: City!
+  cursor: String!
+}
+
+enum CityOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+}
+
+type CityPreviousValues {
+  id: ID!
+  name: String!
+}
+
+type CitySubscriptionPayload {
+  mutation: MutationType!
+  node: City
+  updatedFields: [String!]
+  previousValues: CityPreviousValues
+}
+
+input CitySubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: CityWhereInput
+  AND: [CitySubscriptionWhereInput!]
+  OR: [CitySubscriptionWhereInput!]
+  NOT: [CitySubscriptionWhereInput!]
+}
+
+input CityUpdateInput {
+  name: String
+  streets: StreetUpdateManyWithoutCityInput
+}
+
+input CityUpdateManyMutationInput {
+  name: String
+}
+
+input CityUpdateOneRequiredWithoutStreetsInput {
+  create: CityCreateWithoutStreetsInput
+  update: CityUpdateWithoutStreetsDataInput
+  upsert: CityUpsertWithoutStreetsInput
+  connect: CityWhereUniqueInput
+}
+
+input CityUpdateWithoutStreetsDataInput {
+  name: String
+}
+
+input CityUpsertWithoutStreetsInput {
+  update: CityUpdateWithoutStreetsDataInput!
+  create: CityCreateWithoutStreetsInput!
+}
+
+input CityWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  streets_every: StreetWhereInput
+  streets_some: StreetWhereInput
+  streets_none: StreetWhereInput
+  AND: [CityWhereInput!]
+  OR: [CityWhereInput!]
+  NOT: [CityWhereInput!]
+}
+
+input CityWhereUniqueInput {
+  id: ID
+}
+
+type Difficulty {
+  id: ID!
+  name: String!
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
+}
+
+type DifficultyConnection {
+  pageInfo: PageInfo!
+  edges: [DifficultyEdge]!
+  aggregate: AggregateDifficulty!
+}
+
+input DifficultyCreateInput {
+  id: ID
+  name: String!
+  users: UserCreateManyWithoutDifficultiesInput
+}
+
+input DifficultyCreateManyWithoutUsersInput {
+  create: [DifficultyCreateWithoutUsersInput!]
+  connect: [DifficultyWhereUniqueInput!]
+}
+
+input DifficultyCreateWithoutUsersInput {
+  id: ID
+  name: String!
+}
+
+type DifficultyEdge {
+  node: Difficulty!
+  cursor: String!
+}
+
+enum DifficultyOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+}
+
+type DifficultyPreviousValues {
+  id: ID!
+  name: String!
+}
+
+input DifficultyScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  AND: [DifficultyScalarWhereInput!]
+  OR: [DifficultyScalarWhereInput!]
+  NOT: [DifficultyScalarWhereInput!]
+}
+
+type DifficultySubscriptionPayload {
+  mutation: MutationType!
+  node: Difficulty
+  updatedFields: [String!]
+  previousValues: DifficultyPreviousValues
+}
+
+input DifficultySubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: DifficultyWhereInput
+  AND: [DifficultySubscriptionWhereInput!]
+  OR: [DifficultySubscriptionWhereInput!]
+  NOT: [DifficultySubscriptionWhereInput!]
+}
+
+input DifficultyUpdateInput {
+  name: String
+  users: UserUpdateManyWithoutDifficultiesInput
+}
+
+input DifficultyUpdateManyDataInput {
+  name: String
+}
+
+input DifficultyUpdateManyMutationInput {
+  name: String
+}
+
+input DifficultyUpdateManyWithoutUsersInput {
+  create: [DifficultyCreateWithoutUsersInput!]
+  delete: [DifficultyWhereUniqueInput!]
+  connect: [DifficultyWhereUniqueInput!]
+  set: [DifficultyWhereUniqueInput!]
+  disconnect: [DifficultyWhereUniqueInput!]
+  update: [DifficultyUpdateWithWhereUniqueWithoutUsersInput!]
+  upsert: [DifficultyUpsertWithWhereUniqueWithoutUsersInput!]
+  deleteMany: [DifficultyScalarWhereInput!]
+  updateMany: [DifficultyUpdateManyWithWhereNestedInput!]
+}
+
+input DifficultyUpdateManyWithWhereNestedInput {
+  where: DifficultyScalarWhereInput!
+  data: DifficultyUpdateManyDataInput!
+}
+
+input DifficultyUpdateWithoutUsersDataInput {
+  name: String
+}
+
+input DifficultyUpdateWithWhereUniqueWithoutUsersInput {
+  where: DifficultyWhereUniqueInput!
+  data: DifficultyUpdateWithoutUsersDataInput!
+}
+
+input DifficultyUpsertWithWhereUniqueWithoutUsersInput {
+  where: DifficultyWhereUniqueInput!
+  update: DifficultyUpdateWithoutUsersDataInput!
+  create: DifficultyCreateWithoutUsersInput!
+}
+
+input DifficultyWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  users_every: UserWhereInput
+  users_some: UserWhereInput
+  users_none: UserWhereInput
+  AND: [DifficultyWhereInput!]
+  OR: [DifficultyWhereInput!]
+  NOT: [DifficultyWhereInput!]
+}
+
+input DifficultyWhereUniqueInput {
+  id: ID
+}
+
+type Establishment {
+  id: ID!
+  latitude: Float!
+  longitude: Float!
+  name: String!
+  description: String
+  user: User!
+  street: Street!
+  Esttype: EstablishmentType!
+  assessments(where: AssessmentWhereInput, orderBy: AssessmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Assessment!]
+}
+
+type EstablishmentConnection {
+  pageInfo: PageInfo!
+  edges: [EstablishmentEdge]!
+  aggregate: AggregateEstablishment!
+}
+
+input EstablishmentCreateInput {
+  id: ID
+  latitude: Float!
+  longitude: Float!
+  name: String!
+  description: String
+  user: UserCreateOneInput!
+  street: StreetCreateOneInput!
+  Esttype: EstablishmentTypeCreateOneWithoutEstablishmentInput!
+  assessments: AssessmentCreateManyWithoutEstablishmentInput
+}
+
+input EstablishmentCreateManyWithoutEsttypeInput {
+  create: [EstablishmentCreateWithoutEsttypeInput!]
+  connect: [EstablishmentWhereUniqueInput!]
+}
+
+input EstablishmentCreateOneWithoutAssessmentsInput {
+  create: EstablishmentCreateWithoutAssessmentsInput
+  connect: EstablishmentWhereUniqueInput
+}
+
+input EstablishmentCreateWithoutAssessmentsInput {
+  id: ID
+  latitude: Float!
+  longitude: Float!
+  name: String!
+  description: String
+  user: UserCreateOneInput!
+  street: StreetCreateOneInput!
+  Esttype: EstablishmentTypeCreateOneWithoutEstablishmentInput!
+}
+
+input EstablishmentCreateWithoutEsttypeInput {
+  id: ID
+  latitude: Float!
+  longitude: Float!
+  name: String!
+  description: String
+  user: UserCreateOneInput!
+  street: StreetCreateOneInput!
+  assessments: AssessmentCreateManyWithoutEstablishmentInput
+}
+
+type EstablishmentEdge {
+  node: Establishment!
+  cursor: String!
+}
+
+enum EstablishmentOrderByInput {
+  id_ASC
+  id_DESC
+  latitude_ASC
+  latitude_DESC
+  longitude_ASC
+  longitude_DESC
+  name_ASC
+  name_DESC
+  description_ASC
+  description_DESC
+}
+
+type EstablishmentPreviousValues {
+  id: ID!
+  latitude: Float!
+  longitude: Float!
+  name: String!
+  description: String
+}
+
+input EstablishmentScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  latitude: Float
+  latitude_not: Float
+  latitude_in: [Float!]
+  latitude_not_in: [Float!]
+  latitude_lt: Float
+  latitude_lte: Float
+  latitude_gt: Float
+  latitude_gte: Float
+  longitude: Float
+  longitude_not: Float
+  longitude_in: [Float!]
+  longitude_not_in: [Float!]
+  longitude_lt: Float
+  longitude_lte: Float
+  longitude_gt: Float
+  longitude_gte: Float
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  AND: [EstablishmentScalarWhereInput!]
+  OR: [EstablishmentScalarWhereInput!]
+  NOT: [EstablishmentScalarWhereInput!]
+}
+
+type EstablishmentSubscriptionPayload {
+  mutation: MutationType!
+  node: Establishment
+  updatedFields: [String!]
+  previousValues: EstablishmentPreviousValues
+}
+
+input EstablishmentSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: EstablishmentWhereInput
+  AND: [EstablishmentSubscriptionWhereInput!]
+  OR: [EstablishmentSubscriptionWhereInput!]
+  NOT: [EstablishmentSubscriptionWhereInput!]
+}
+
+type EstablishmentType {
+  id: ID!
+  name: String!
+  establishment(where: EstablishmentWhereInput, orderBy: EstablishmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Establishment!]
+}
+
+type EstablishmentTypeConnection {
+  pageInfo: PageInfo!
+  edges: [EstablishmentTypeEdge]!
+  aggregate: AggregateEstablishmentType!
+}
+
+input EstablishmentTypeCreateInput {
+  id: ID
+  name: String!
+  establishment: EstablishmentCreateManyWithoutEsttypeInput
+}
+
+input EstablishmentTypeCreateOneWithoutEstablishmentInput {
+  create: EstablishmentTypeCreateWithoutEstablishmentInput
+  connect: EstablishmentTypeWhereUniqueInput
+}
+
+input EstablishmentTypeCreateWithoutEstablishmentInput {
+  id: ID
+  name: String!
+}
+
+type EstablishmentTypeEdge {
+  node: EstablishmentType!
+  cursor: String!
+}
+
+enum EstablishmentTypeOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+}
+
+type EstablishmentTypePreviousValues {
+  id: ID!
+  name: String!
+}
+
+type EstablishmentTypeSubscriptionPayload {
+  mutation: MutationType!
+  node: EstablishmentType
+  updatedFields: [String!]
+  previousValues: EstablishmentTypePreviousValues
+}
+
+input EstablishmentTypeSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: EstablishmentTypeWhereInput
+  AND: [EstablishmentTypeSubscriptionWhereInput!]
+  OR: [EstablishmentTypeSubscriptionWhereInput!]
+  NOT: [EstablishmentTypeSubscriptionWhereInput!]
+}
+
+input EstablishmentTypeUpdateInput {
+  name: String
+  establishment: EstablishmentUpdateManyWithoutEsttypeInput
+}
+
+input EstablishmentTypeUpdateManyMutationInput {
+  name: String
+}
+
+input EstablishmentTypeUpdateOneRequiredWithoutEstablishmentInput {
+  create: EstablishmentTypeCreateWithoutEstablishmentInput
+  update: EstablishmentTypeUpdateWithoutEstablishmentDataInput
+  upsert: EstablishmentTypeUpsertWithoutEstablishmentInput
+  connect: EstablishmentTypeWhereUniqueInput
+}
+
+input EstablishmentTypeUpdateWithoutEstablishmentDataInput {
+  name: String
+}
+
+input EstablishmentTypeUpsertWithoutEstablishmentInput {
+  update: EstablishmentTypeUpdateWithoutEstablishmentDataInput!
+  create: EstablishmentTypeCreateWithoutEstablishmentInput!
+}
+
+input EstablishmentTypeWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  establishment_every: EstablishmentWhereInput
+  establishment_some: EstablishmentWhereInput
+  establishment_none: EstablishmentWhereInput
+  AND: [EstablishmentTypeWhereInput!]
+  OR: [EstablishmentTypeWhereInput!]
+  NOT: [EstablishmentTypeWhereInput!]
+}
+
+input EstablishmentTypeWhereUniqueInput {
+  id: ID
+}
+
+input EstablishmentUpdateInput {
+  latitude: Float
+  longitude: Float
+  name: String
+  description: String
+  user: UserUpdateOneRequiredInput
+  street: StreetUpdateOneRequiredInput
+  Esttype: EstablishmentTypeUpdateOneRequiredWithoutEstablishmentInput
+  assessments: AssessmentUpdateManyWithoutEstablishmentInput
+}
+
+input EstablishmentUpdateManyDataInput {
+  latitude: Float
+  longitude: Float
+  name: String
+  description: String
+}
+
+input EstablishmentUpdateManyMutationInput {
+  latitude: Float
+  longitude: Float
+  name: String
+  description: String
+}
+
+input EstablishmentUpdateManyWithoutEsttypeInput {
+  create: [EstablishmentCreateWithoutEsttypeInput!]
+  delete: [EstablishmentWhereUniqueInput!]
+  connect: [EstablishmentWhereUniqueInput!]
+  set: [EstablishmentWhereUniqueInput!]
+  disconnect: [EstablishmentWhereUniqueInput!]
+  update: [EstablishmentUpdateWithWhereUniqueWithoutEsttypeInput!]
+  upsert: [EstablishmentUpsertWithWhereUniqueWithoutEsttypeInput!]
+  deleteMany: [EstablishmentScalarWhereInput!]
+  updateMany: [EstablishmentUpdateManyWithWhereNestedInput!]
+}
+
+input EstablishmentUpdateManyWithWhereNestedInput {
+  where: EstablishmentScalarWhereInput!
+  data: EstablishmentUpdateManyDataInput!
+}
+
+input EstablishmentUpdateOneRequiredWithoutAssessmentsInput {
+  create: EstablishmentCreateWithoutAssessmentsInput
+  update: EstablishmentUpdateWithoutAssessmentsDataInput
+  upsert: EstablishmentUpsertWithoutAssessmentsInput
+  connect: EstablishmentWhereUniqueInput
+}
+
+input EstablishmentUpdateWithoutAssessmentsDataInput {
+  latitude: Float
+  longitude: Float
+  name: String
+  description: String
+  user: UserUpdateOneRequiredInput
+  street: StreetUpdateOneRequiredInput
+  Esttype: EstablishmentTypeUpdateOneRequiredWithoutEstablishmentInput
+}
+
+input EstablishmentUpdateWithoutEsttypeDataInput {
+  latitude: Float
+  longitude: Float
+  name: String
+  description: String
+  user: UserUpdateOneRequiredInput
+  street: StreetUpdateOneRequiredInput
+  assessments: AssessmentUpdateManyWithoutEstablishmentInput
+}
+
+input EstablishmentUpdateWithWhereUniqueWithoutEsttypeInput {
+  where: EstablishmentWhereUniqueInput!
+  data: EstablishmentUpdateWithoutEsttypeDataInput!
+}
+
+input EstablishmentUpsertWithoutAssessmentsInput {
+  update: EstablishmentUpdateWithoutAssessmentsDataInput!
+  create: EstablishmentCreateWithoutAssessmentsInput!
+}
+
+input EstablishmentUpsertWithWhereUniqueWithoutEsttypeInput {
+  where: EstablishmentWhereUniqueInput!
+  update: EstablishmentUpdateWithoutEsttypeDataInput!
+  create: EstablishmentCreateWithoutEsttypeInput!
+}
+
+input EstablishmentWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  latitude: Float
+  latitude_not: Float
+  latitude_in: [Float!]
+  latitude_not_in: [Float!]
+  latitude_lt: Float
+  latitude_lte: Float
+  latitude_gt: Float
+  latitude_gte: Float
+  longitude: Float
+  longitude_not: Float
+  longitude_in: [Float!]
+  longitude_not_in: [Float!]
+  longitude_lt: Float
+  longitude_lte: Float
+  longitude_gt: Float
+  longitude_gte: Float
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  user: UserWhereInput
+  street: StreetWhereInput
+  Esttype: EstablishmentTypeWhereInput
+  assessments_every: AssessmentWhereInput
+  assessments_some: AssessmentWhereInput
+  assessments_none: AssessmentWhereInput
+  AND: [EstablishmentWhereInput!]
+  OR: [EstablishmentWhereInput!]
+  NOT: [EstablishmentWhereInput!]
+}
+
+input EstablishmentWhereUniqueInput {
+  id: ID
+}
+
+type Gravity {
+  id: ID!
+  name: String!
+  incidences(where: IncidenceWhereInput, orderBy: IncidenceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Incidence!]
+}
+
+type GravityConnection {
+  pageInfo: PageInfo!
+  edges: [GravityEdge]!
+  aggregate: AggregateGravity!
+}
+
+input GravityCreateInput {
+  id: ID
+  name: String!
+  incidences: IncidenceCreateManyWithoutGravityInput
+}
+
+input GravityCreateOneWithoutIncidencesInput {
+  create: GravityCreateWithoutIncidencesInput
+  connect: GravityWhereUniqueInput
+}
+
+input GravityCreateWithoutIncidencesInput {
+  id: ID
+  name: String!
+}
+
+type GravityEdge {
+  node: Gravity!
+  cursor: String!
+}
+
+enum GravityOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+}
+
+type GravityPreviousValues {
+  id: ID!
+  name: String!
+}
+
+type GravitySubscriptionPayload {
+  mutation: MutationType!
+  node: Gravity
+  updatedFields: [String!]
+  previousValues: GravityPreviousValues
+}
+
+input GravitySubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: GravityWhereInput
+  AND: [GravitySubscriptionWhereInput!]
+  OR: [GravitySubscriptionWhereInput!]
+  NOT: [GravitySubscriptionWhereInput!]
+}
+
+input GravityUpdateInput {
+  name: String
+  incidences: IncidenceUpdateManyWithoutGravityInput
+}
+
+input GravityUpdateManyMutationInput {
+  name: String
+}
+
+input GravityUpdateOneRequiredWithoutIncidencesInput {
+  create: GravityCreateWithoutIncidencesInput
+  update: GravityUpdateWithoutIncidencesDataInput
+  upsert: GravityUpsertWithoutIncidencesInput
+  connect: GravityWhereUniqueInput
+}
+
+input GravityUpdateWithoutIncidencesDataInput {
+  name: String
+}
+
+input GravityUpsertWithoutIncidencesInput {
+  update: GravityUpdateWithoutIncidencesDataInput!
+  create: GravityCreateWithoutIncidencesInput!
+}
+
+input GravityWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  incidences_every: IncidenceWhereInput
+  incidences_some: IncidenceWhereInput
+  incidences_none: IncidenceWhereInput
+  AND: [GravityWhereInput!]
+  OR: [GravityWhereInput!]
+  NOT: [GravityWhereInput!]
+}
+
+input GravityWhereUniqueInput {
+  id: ID
+}
+
+type Incidence {
+  id: ID!
+  latitude: Float!
+  longitude: Float!
+  comment: String!
+  state: String!
+  street: Street!
+  user: User!
+  gravity: Gravity!
+  typeinc: IncidenceType!
+}
+
+type IncidenceConnection {
+  pageInfo: PageInfo!
+  edges: [IncidenceEdge]!
+  aggregate: AggregateIncidence!
+}
+
+input IncidenceCreateInput {
+  id: ID
+  latitude: Float!
+  longitude: Float!
+  comment: String!
+  state: String!
+  street: StreetCreateOneWithoutIncidencesInput!
+  user: UserCreateOneWithoutIncidencesInput!
+  gravity: GravityCreateOneWithoutIncidencesInput!
+  typeinc: IncidenceTypeCreateOneWithoutIncidencesInput!
+}
+
+input IncidenceCreateManyWithoutGravityInput {
+  create: [IncidenceCreateWithoutGravityInput!]
+  connect: [IncidenceWhereUniqueInput!]
+}
+
+input IncidenceCreateManyWithoutStreetInput {
+  create: [IncidenceCreateWithoutStreetInput!]
+  connect: [IncidenceWhereUniqueInput!]
+}
+
+input IncidenceCreateManyWithoutTypeincInput {
+  create: [IncidenceCreateWithoutTypeincInput!]
+  connect: [IncidenceWhereUniqueInput!]
+}
+
+input IncidenceCreateManyWithoutUserInput {
+  create: [IncidenceCreateWithoutUserInput!]
+  connect: [IncidenceWhereUniqueInput!]
+}
+
+input IncidenceCreateWithoutGravityInput {
+  id: ID
+  latitude: Float!
+  longitude: Float!
+  comment: String!
+  state: String!
+  street: StreetCreateOneWithoutIncidencesInput!
+  user: UserCreateOneWithoutIncidencesInput!
+  typeinc: IncidenceTypeCreateOneWithoutIncidencesInput!
+}
+
+input IncidenceCreateWithoutStreetInput {
+  id: ID
+  latitude: Float!
+  longitude: Float!
+  comment: String!
+  state: String!
+  user: UserCreateOneWithoutIncidencesInput!
+  gravity: GravityCreateOneWithoutIncidencesInput!
+  typeinc: IncidenceTypeCreateOneWithoutIncidencesInput!
+}
+
+input IncidenceCreateWithoutTypeincInput {
+  id: ID
+  latitude: Float!
+  longitude: Float!
+  comment: String!
+  state: String!
+  street: StreetCreateOneWithoutIncidencesInput!
+  user: UserCreateOneWithoutIncidencesInput!
+  gravity: GravityCreateOneWithoutIncidencesInput!
+}
+
+input IncidenceCreateWithoutUserInput {
+  id: ID
+  latitude: Float!
+  longitude: Float!
+  comment: String!
+  state: String!
+  street: StreetCreateOneWithoutIncidencesInput!
+  gravity: GravityCreateOneWithoutIncidencesInput!
+  typeinc: IncidenceTypeCreateOneWithoutIncidencesInput!
+}
+
+type IncidenceEdge {
+  node: Incidence!
+  cursor: String!
+}
+
+enum IncidenceOrderByInput {
+  id_ASC
+  id_DESC
+  latitude_ASC
+  latitude_DESC
+  longitude_ASC
+  longitude_DESC
+  comment_ASC
+  comment_DESC
+  state_ASC
+  state_DESC
+}
+
+type IncidencePreviousValues {
+  id: ID!
+  latitude: Float!
+  longitude: Float!
+  comment: String!
+  state: String!
+}
+
+input IncidenceScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  latitude: Float
+  latitude_not: Float
+  latitude_in: [Float!]
+  latitude_not_in: [Float!]
+  latitude_lt: Float
+  latitude_lte: Float
+  latitude_gt: Float
+  latitude_gte: Float
+  longitude: Float
+  longitude_not: Float
+  longitude_in: [Float!]
+  longitude_not_in: [Float!]
+  longitude_lt: Float
+  longitude_lte: Float
+  longitude_gt: Float
+  longitude_gte: Float
+  comment: String
+  comment_not: String
+  comment_in: [String!]
+  comment_not_in: [String!]
+  comment_lt: String
+  comment_lte: String
+  comment_gt: String
+  comment_gte: String
+  comment_contains: String
+  comment_not_contains: String
+  comment_starts_with: String
+  comment_not_starts_with: String
+  comment_ends_with: String
+  comment_not_ends_with: String
+  state: String
+  state_not: String
+  state_in: [String!]
+  state_not_in: [String!]
+  state_lt: String
+  state_lte: String
+  state_gt: String
+  state_gte: String
+  state_contains: String
+  state_not_contains: String
+  state_starts_with: String
+  state_not_starts_with: String
+  state_ends_with: String
+  state_not_ends_with: String
+  AND: [IncidenceScalarWhereInput!]
+  OR: [IncidenceScalarWhereInput!]
+  NOT: [IncidenceScalarWhereInput!]
+}
+
+type IncidenceSubscriptionPayload {
+  mutation: MutationType!
+  node: Incidence
+  updatedFields: [String!]
+  previousValues: IncidencePreviousValues
+}
+
+input IncidenceSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: IncidenceWhereInput
+  AND: [IncidenceSubscriptionWhereInput!]
+  OR: [IncidenceSubscriptionWhereInput!]
+  NOT: [IncidenceSubscriptionWhereInput!]
+}
+
+type IncidenceType {
+  id: ID!
+  name: String!
+  category: Category!
+  incidences(where: IncidenceWhereInput, orderBy: IncidenceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Incidence!]
+}
+
+type IncidenceTypeConnection {
+  pageInfo: PageInfo!
+  edges: [IncidenceTypeEdge]!
+  aggregate: AggregateIncidenceType!
+}
+
+input IncidenceTypeCreateInput {
+  id: ID
+  name: String!
+  category: CategoryCreateOneWithoutInctypesInput!
+  incidences: IncidenceCreateManyWithoutTypeincInput
+}
+
+input IncidenceTypeCreateManyWithoutCategoryInput {
+  create: [IncidenceTypeCreateWithoutCategoryInput!]
+  connect: [IncidenceTypeWhereUniqueInput!]
+}
+
+input IncidenceTypeCreateOneWithoutIncidencesInput {
+  create: IncidenceTypeCreateWithoutIncidencesInput
+  connect: IncidenceTypeWhereUniqueInput
+}
+
+input IncidenceTypeCreateWithoutCategoryInput {
+  id: ID
+  name: String!
+  incidences: IncidenceCreateManyWithoutTypeincInput
+}
+
+input IncidenceTypeCreateWithoutIncidencesInput {
+  id: ID
+  name: String!
+  category: CategoryCreateOneWithoutInctypesInput!
+}
+
+type IncidenceTypeEdge {
+  node: IncidenceType!
+  cursor: String!
+}
+
+enum IncidenceTypeOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+}
+
+type IncidenceTypePreviousValues {
+  id: ID!
+  name: String!
+}
+
+input IncidenceTypeScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  AND: [IncidenceTypeScalarWhereInput!]
+  OR: [IncidenceTypeScalarWhereInput!]
+  NOT: [IncidenceTypeScalarWhereInput!]
+}
+
+type IncidenceTypeSubscriptionPayload {
+  mutation: MutationType!
+  node: IncidenceType
+  updatedFields: [String!]
+  previousValues: IncidenceTypePreviousValues
+}
+
+input IncidenceTypeSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: IncidenceTypeWhereInput
+  AND: [IncidenceTypeSubscriptionWhereInput!]
+  OR: [IncidenceTypeSubscriptionWhereInput!]
+  NOT: [IncidenceTypeSubscriptionWhereInput!]
+}
+
+input IncidenceTypeUpdateInput {
+  name: String
+  category: CategoryUpdateOneRequiredWithoutInctypesInput
+  incidences: IncidenceUpdateManyWithoutTypeincInput
+}
+
+input IncidenceTypeUpdateManyDataInput {
+  name: String
+}
+
+input IncidenceTypeUpdateManyMutationInput {
+  name: String
+}
+
+input IncidenceTypeUpdateManyWithoutCategoryInput {
+  create: [IncidenceTypeCreateWithoutCategoryInput!]
+  delete: [IncidenceTypeWhereUniqueInput!]
+  connect: [IncidenceTypeWhereUniqueInput!]
+  set: [IncidenceTypeWhereUniqueInput!]
+  disconnect: [IncidenceTypeWhereUniqueInput!]
+  update: [IncidenceTypeUpdateWithWhereUniqueWithoutCategoryInput!]
+  upsert: [IncidenceTypeUpsertWithWhereUniqueWithoutCategoryInput!]
+  deleteMany: [IncidenceTypeScalarWhereInput!]
+  updateMany: [IncidenceTypeUpdateManyWithWhereNestedInput!]
+}
+
+input IncidenceTypeUpdateManyWithWhereNestedInput {
+  where: IncidenceTypeScalarWhereInput!
+  data: IncidenceTypeUpdateManyDataInput!
+}
+
+input IncidenceTypeUpdateOneRequiredWithoutIncidencesInput {
+  create: IncidenceTypeCreateWithoutIncidencesInput
+  update: IncidenceTypeUpdateWithoutIncidencesDataInput
+  upsert: IncidenceTypeUpsertWithoutIncidencesInput
+  connect: IncidenceTypeWhereUniqueInput
+}
+
+input IncidenceTypeUpdateWithoutCategoryDataInput {
+  name: String
+  incidences: IncidenceUpdateManyWithoutTypeincInput
+}
+
+input IncidenceTypeUpdateWithoutIncidencesDataInput {
+  name: String
+  category: CategoryUpdateOneRequiredWithoutInctypesInput
+}
+
+input IncidenceTypeUpdateWithWhereUniqueWithoutCategoryInput {
+  where: IncidenceTypeWhereUniqueInput!
+  data: IncidenceTypeUpdateWithoutCategoryDataInput!
+}
+
+input IncidenceTypeUpsertWithoutIncidencesInput {
+  update: IncidenceTypeUpdateWithoutIncidencesDataInput!
+  create: IncidenceTypeCreateWithoutIncidencesInput!
+}
+
+input IncidenceTypeUpsertWithWhereUniqueWithoutCategoryInput {
+  where: IncidenceTypeWhereUniqueInput!
+  update: IncidenceTypeUpdateWithoutCategoryDataInput!
+  create: IncidenceTypeCreateWithoutCategoryInput!
+}
+
+input IncidenceTypeWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  category: CategoryWhereInput
+  incidences_every: IncidenceWhereInput
+  incidences_some: IncidenceWhereInput
+  incidences_none: IncidenceWhereInput
+  AND: [IncidenceTypeWhereInput!]
+  OR: [IncidenceTypeWhereInput!]
+  NOT: [IncidenceTypeWhereInput!]
+}
+
+input IncidenceTypeWhereUniqueInput {
+  id: ID
+}
+
+input IncidenceUpdateInput {
+  latitude: Float
+  longitude: Float
+  comment: String
+  state: String
+  street: StreetUpdateOneRequiredWithoutIncidencesInput
+  user: UserUpdateOneRequiredWithoutIncidencesInput
+  gravity: GravityUpdateOneRequiredWithoutIncidencesInput
+  typeinc: IncidenceTypeUpdateOneRequiredWithoutIncidencesInput
+}
+
+input IncidenceUpdateManyDataInput {
+  latitude: Float
+  longitude: Float
+  comment: String
+  state: String
+}
+
+input IncidenceUpdateManyMutationInput {
+  latitude: Float
+  longitude: Float
+  comment: String
+  state: String
+}
+
+input IncidenceUpdateManyWithoutGravityInput {
+  create: [IncidenceCreateWithoutGravityInput!]
+  delete: [IncidenceWhereUniqueInput!]
+  connect: [IncidenceWhereUniqueInput!]
+  set: [IncidenceWhereUniqueInput!]
+  disconnect: [IncidenceWhereUniqueInput!]
+  update: [IncidenceUpdateWithWhereUniqueWithoutGravityInput!]
+  upsert: [IncidenceUpsertWithWhereUniqueWithoutGravityInput!]
+  deleteMany: [IncidenceScalarWhereInput!]
+  updateMany: [IncidenceUpdateManyWithWhereNestedInput!]
+}
+
+input IncidenceUpdateManyWithoutStreetInput {
+  create: [IncidenceCreateWithoutStreetInput!]
+  delete: [IncidenceWhereUniqueInput!]
+  connect: [IncidenceWhereUniqueInput!]
+  set: [IncidenceWhereUniqueInput!]
+  disconnect: [IncidenceWhereUniqueInput!]
+  update: [IncidenceUpdateWithWhereUniqueWithoutStreetInput!]
+  upsert: [IncidenceUpsertWithWhereUniqueWithoutStreetInput!]
+  deleteMany: [IncidenceScalarWhereInput!]
+  updateMany: [IncidenceUpdateManyWithWhereNestedInput!]
+}
+
+input IncidenceUpdateManyWithoutTypeincInput {
+  create: [IncidenceCreateWithoutTypeincInput!]
+  delete: [IncidenceWhereUniqueInput!]
+  connect: [IncidenceWhereUniqueInput!]
+  set: [IncidenceWhereUniqueInput!]
+  disconnect: [IncidenceWhereUniqueInput!]
+  update: [IncidenceUpdateWithWhereUniqueWithoutTypeincInput!]
+  upsert: [IncidenceUpsertWithWhereUniqueWithoutTypeincInput!]
+  deleteMany: [IncidenceScalarWhereInput!]
+  updateMany: [IncidenceUpdateManyWithWhereNestedInput!]
+}
+
+input IncidenceUpdateManyWithoutUserInput {
+  create: [IncidenceCreateWithoutUserInput!]
+  delete: [IncidenceWhereUniqueInput!]
+  connect: [IncidenceWhereUniqueInput!]
+  set: [IncidenceWhereUniqueInput!]
+  disconnect: [IncidenceWhereUniqueInput!]
+  update: [IncidenceUpdateWithWhereUniqueWithoutUserInput!]
+  upsert: [IncidenceUpsertWithWhereUniqueWithoutUserInput!]
+  deleteMany: [IncidenceScalarWhereInput!]
+  updateMany: [IncidenceUpdateManyWithWhereNestedInput!]
+}
+
+input IncidenceUpdateManyWithWhereNestedInput {
+  where: IncidenceScalarWhereInput!
+  data: IncidenceUpdateManyDataInput!
+}
+
+input IncidenceUpdateWithoutGravityDataInput {
+  latitude: Float
+  longitude: Float
+  comment: String
+  state: String
+  street: StreetUpdateOneRequiredWithoutIncidencesInput
+  user: UserUpdateOneRequiredWithoutIncidencesInput
+  typeinc: IncidenceTypeUpdateOneRequiredWithoutIncidencesInput
+}
+
+input IncidenceUpdateWithoutStreetDataInput {
+  latitude: Float
+  longitude: Float
+  comment: String
+  state: String
+  user: UserUpdateOneRequiredWithoutIncidencesInput
+  gravity: GravityUpdateOneRequiredWithoutIncidencesInput
+  typeinc: IncidenceTypeUpdateOneRequiredWithoutIncidencesInput
+}
+
+input IncidenceUpdateWithoutTypeincDataInput {
+  latitude: Float
+  longitude: Float
+  comment: String
+  state: String
+  street: StreetUpdateOneRequiredWithoutIncidencesInput
+  user: UserUpdateOneRequiredWithoutIncidencesInput
+  gravity: GravityUpdateOneRequiredWithoutIncidencesInput
+}
+
+input IncidenceUpdateWithoutUserDataInput {
+  latitude: Float
+  longitude: Float
+  comment: String
+  state: String
+  street: StreetUpdateOneRequiredWithoutIncidencesInput
+  gravity: GravityUpdateOneRequiredWithoutIncidencesInput
+  typeinc: IncidenceTypeUpdateOneRequiredWithoutIncidencesInput
+}
+
+input IncidenceUpdateWithWhereUniqueWithoutGravityInput {
+  where: IncidenceWhereUniqueInput!
+  data: IncidenceUpdateWithoutGravityDataInput!
+}
+
+input IncidenceUpdateWithWhereUniqueWithoutStreetInput {
+  where: IncidenceWhereUniqueInput!
+  data: IncidenceUpdateWithoutStreetDataInput!
+}
+
+input IncidenceUpdateWithWhereUniqueWithoutTypeincInput {
+  where: IncidenceWhereUniqueInput!
+  data: IncidenceUpdateWithoutTypeincDataInput!
+}
+
+input IncidenceUpdateWithWhereUniqueWithoutUserInput {
+  where: IncidenceWhereUniqueInput!
+  data: IncidenceUpdateWithoutUserDataInput!
+}
+
+input IncidenceUpsertWithWhereUniqueWithoutGravityInput {
+  where: IncidenceWhereUniqueInput!
+  update: IncidenceUpdateWithoutGravityDataInput!
+  create: IncidenceCreateWithoutGravityInput!
+}
+
+input IncidenceUpsertWithWhereUniqueWithoutStreetInput {
+  where: IncidenceWhereUniqueInput!
+  update: IncidenceUpdateWithoutStreetDataInput!
+  create: IncidenceCreateWithoutStreetInput!
+}
+
+input IncidenceUpsertWithWhereUniqueWithoutTypeincInput {
+  where: IncidenceWhereUniqueInput!
+  update: IncidenceUpdateWithoutTypeincDataInput!
+  create: IncidenceCreateWithoutTypeincInput!
+}
+
+input IncidenceUpsertWithWhereUniqueWithoutUserInput {
+  where: IncidenceWhereUniqueInput!
+  update: IncidenceUpdateWithoutUserDataInput!
+  create: IncidenceCreateWithoutUserInput!
+}
+
+input IncidenceWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  latitude: Float
+  latitude_not: Float
+  latitude_in: [Float!]
+  latitude_not_in: [Float!]
+  latitude_lt: Float
+  latitude_lte: Float
+  latitude_gt: Float
+  latitude_gte: Float
+  longitude: Float
+  longitude_not: Float
+  longitude_in: [Float!]
+  longitude_not_in: [Float!]
+  longitude_lt: Float
+  longitude_lte: Float
+  longitude_gt: Float
+  longitude_gte: Float
+  comment: String
+  comment_not: String
+  comment_in: [String!]
+  comment_not_in: [String!]
+  comment_lt: String
+  comment_lte: String
+  comment_gt: String
+  comment_gte: String
+  comment_contains: String
+  comment_not_contains: String
+  comment_starts_with: String
+  comment_not_starts_with: String
+  comment_ends_with: String
+  comment_not_ends_with: String
+  state: String
+  state_not: String
+  state_in: [String!]
+  state_not_in: [String!]
+  state_lt: String
+  state_lte: String
+  state_gt: String
+  state_gte: String
+  state_contains: String
+  state_not_contains: String
+  state_starts_with: String
+  state_not_starts_with: String
+  state_ends_with: String
+  state_not_ends_with: String
+  street: StreetWhereInput
+  user: UserWhereInput
+  gravity: GravityWhereInput
+  typeinc: IncidenceTypeWhereInput
+  AND: [IncidenceWhereInput!]
+  OR: [IncidenceWhereInput!]
+  NOT: [IncidenceWhereInput!]
+}
+
+input IncidenceWhereUniqueInput {
+  id: ID
+}
+
 scalar Long
 
 type Mutation {
+  createAssessment(data: AssessmentCreateInput!): Assessment!
+  updateAssessment(data: AssessmentUpdateInput!, where: AssessmentWhereUniqueInput!): Assessment
+  updateManyAssessments(data: AssessmentUpdateManyMutationInput!, where: AssessmentWhereInput): BatchPayload!
+  upsertAssessment(where: AssessmentWhereUniqueInput!, create: AssessmentCreateInput!, update: AssessmentUpdateInput!): Assessment!
+  deleteAssessment(where: AssessmentWhereUniqueInput!): Assessment
+  deleteManyAssessments(where: AssessmentWhereInput): BatchPayload!
+  createCategory(data: CategoryCreateInput!): Category!
+  updateCategory(data: CategoryUpdateInput!, where: CategoryWhereUniqueInput!): Category
+  updateManyCategories(data: CategoryUpdateManyMutationInput!, where: CategoryWhereInput): BatchPayload!
+  upsertCategory(where: CategoryWhereUniqueInput!, create: CategoryCreateInput!, update: CategoryUpdateInput!): Category!
+  deleteCategory(where: CategoryWhereUniqueInput!): Category
+  deleteManyCategories(where: CategoryWhereInput): BatchPayload!
+  createCity(data: CityCreateInput!): City!
+  updateCity(data: CityUpdateInput!, where: CityWhereUniqueInput!): City
+  updateManyCities(data: CityUpdateManyMutationInput!, where: CityWhereInput): BatchPayload!
+  upsertCity(where: CityWhereUniqueInput!, create: CityCreateInput!, update: CityUpdateInput!): City!
+  deleteCity(where: CityWhereUniqueInput!): City
+  deleteManyCities(where: CityWhereInput): BatchPayload!
+  createDifficulty(data: DifficultyCreateInput!): Difficulty!
+  updateDifficulty(data: DifficultyUpdateInput!, where: DifficultyWhereUniqueInput!): Difficulty
+  updateManyDifficulties(data: DifficultyUpdateManyMutationInput!, where: DifficultyWhereInput): BatchPayload!
+  upsertDifficulty(where: DifficultyWhereUniqueInput!, create: DifficultyCreateInput!, update: DifficultyUpdateInput!): Difficulty!
+  deleteDifficulty(where: DifficultyWhereUniqueInput!): Difficulty
+  deleteManyDifficulties(where: DifficultyWhereInput): BatchPayload!
+  createEstablishment(data: EstablishmentCreateInput!): Establishment!
+  updateEstablishment(data: EstablishmentUpdateInput!, where: EstablishmentWhereUniqueInput!): Establishment
+  updateManyEstablishments(data: EstablishmentUpdateManyMutationInput!, where: EstablishmentWhereInput): BatchPayload!
+  upsertEstablishment(where: EstablishmentWhereUniqueInput!, create: EstablishmentCreateInput!, update: EstablishmentUpdateInput!): Establishment!
+  deleteEstablishment(where: EstablishmentWhereUniqueInput!): Establishment
+  deleteManyEstablishments(where: EstablishmentWhereInput): BatchPayload!
+  createEstablishmentType(data: EstablishmentTypeCreateInput!): EstablishmentType!
+  updateEstablishmentType(data: EstablishmentTypeUpdateInput!, where: EstablishmentTypeWhereUniqueInput!): EstablishmentType
+  updateManyEstablishmentTypes(data: EstablishmentTypeUpdateManyMutationInput!, where: EstablishmentTypeWhereInput): BatchPayload!
+  upsertEstablishmentType(where: EstablishmentTypeWhereUniqueInput!, create: EstablishmentTypeCreateInput!, update: EstablishmentTypeUpdateInput!): EstablishmentType!
+  deleteEstablishmentType(where: EstablishmentTypeWhereUniqueInput!): EstablishmentType
+  deleteManyEstablishmentTypes(where: EstablishmentTypeWhereInput): BatchPayload!
+  createGravity(data: GravityCreateInput!): Gravity!
+  updateGravity(data: GravityUpdateInput!, where: GravityWhereUniqueInput!): Gravity
+  updateManyGravities(data: GravityUpdateManyMutationInput!, where: GravityWhereInput): BatchPayload!
+  upsertGravity(where: GravityWhereUniqueInput!, create: GravityCreateInput!, update: GravityUpdateInput!): Gravity!
+  deleteGravity(where: GravityWhereUniqueInput!): Gravity
+  deleteManyGravities(where: GravityWhereInput): BatchPayload!
+  createIncidence(data: IncidenceCreateInput!): Incidence!
+  updateIncidence(data: IncidenceUpdateInput!, where: IncidenceWhereUniqueInput!): Incidence
+  updateManyIncidences(data: IncidenceUpdateManyMutationInput!, where: IncidenceWhereInput): BatchPayload!
+  upsertIncidence(where: IncidenceWhereUniqueInput!, create: IncidenceCreateInput!, update: IncidenceUpdateInput!): Incidence!
+  deleteIncidence(where: IncidenceWhereUniqueInput!): Incidence
+  deleteManyIncidences(where: IncidenceWhereInput): BatchPayload!
+  createIncidenceType(data: IncidenceTypeCreateInput!): IncidenceType!
+  updateIncidenceType(data: IncidenceTypeUpdateInput!, where: IncidenceTypeWhereUniqueInput!): IncidenceType
+  updateManyIncidenceTypes(data: IncidenceTypeUpdateManyMutationInput!, where: IncidenceTypeWhereInput): BatchPayload!
+  upsertIncidenceType(where: IncidenceTypeWhereUniqueInput!, create: IncidenceTypeCreateInput!, update: IncidenceTypeUpdateInput!): IncidenceType!
+  deleteIncidenceType(where: IncidenceTypeWhereUniqueInput!): IncidenceType
+  deleteManyIncidenceTypes(where: IncidenceTypeWhereInput): BatchPayload!
+  createStreet(data: StreetCreateInput!): Street!
+  updateStreet(data: StreetUpdateInput!, where: StreetWhereUniqueInput!): Street
+  updateManyStreets(data: StreetUpdateManyMutationInput!, where: StreetWhereInput): BatchPayload!
+  upsertStreet(where: StreetWhereUniqueInput!, create: StreetCreateInput!, update: StreetUpdateInput!): Street!
+  deleteStreet(where: StreetWhereUniqueInput!): Street
+  deleteManyStreets(where: StreetWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
@@ -40,6 +2075,36 @@ type PageInfo {
 }
 
 type Query {
+  assessment(where: AssessmentWhereUniqueInput!): Assessment
+  assessments(where: AssessmentWhereInput, orderBy: AssessmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Assessment]!
+  assessmentsConnection(where: AssessmentWhereInput, orderBy: AssessmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AssessmentConnection!
+  category(where: CategoryWhereUniqueInput!): Category
+  categories(where: CategoryWhereInput, orderBy: CategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Category]!
+  categoriesConnection(where: CategoryWhereInput, orderBy: CategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CategoryConnection!
+  city(where: CityWhereUniqueInput!): City
+  cities(where: CityWhereInput, orderBy: CityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [City]!
+  citiesConnection(where: CityWhereInput, orderBy: CityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CityConnection!
+  difficulty(where: DifficultyWhereUniqueInput!): Difficulty
+  difficulties(where: DifficultyWhereInput, orderBy: DifficultyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Difficulty]!
+  difficultiesConnection(where: DifficultyWhereInput, orderBy: DifficultyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): DifficultyConnection!
+  establishment(where: EstablishmentWhereUniqueInput!): Establishment
+  establishments(where: EstablishmentWhereInput, orderBy: EstablishmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Establishment]!
+  establishmentsConnection(where: EstablishmentWhereInput, orderBy: EstablishmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): EstablishmentConnection!
+  establishmentType(where: EstablishmentTypeWhereUniqueInput!): EstablishmentType
+  establishmentTypes(where: EstablishmentTypeWhereInput, orderBy: EstablishmentTypeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [EstablishmentType]!
+  establishmentTypesConnection(where: EstablishmentTypeWhereInput, orderBy: EstablishmentTypeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): EstablishmentTypeConnection!
+  gravity(where: GravityWhereUniqueInput!): Gravity
+  gravities(where: GravityWhereInput, orderBy: GravityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Gravity]!
+  gravitiesConnection(where: GravityWhereInput, orderBy: GravityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): GravityConnection!
+  incidence(where: IncidenceWhereUniqueInput!): Incidence
+  incidences(where: IncidenceWhereInput, orderBy: IncidenceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Incidence]!
+  incidencesConnection(where: IncidenceWhereInput, orderBy: IncidenceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): IncidenceConnection!
+  incidenceType(where: IncidenceTypeWhereUniqueInput!): IncidenceType
+  incidenceTypes(where: IncidenceTypeWhereInput, orderBy: IncidenceTypeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [IncidenceType]!
+  incidenceTypesConnection(where: IncidenceTypeWhereInput, orderBy: IncidenceTypeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): IncidenceTypeConnection!
+  street(where: StreetWhereUniqueInput!): Street
+  streets(where: StreetWhereInput, orderBy: StreetOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Street]!
+  streetsConnection(where: StreetWhereInput, orderBy: StreetOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): StreetConnection!
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
@@ -52,7 +2117,257 @@ enum Role {
   USER
 }
 
+type Street {
+  id: ID!
+  name: String!
+  city: City!
+  incidences(where: IncidenceWhereInput, orderBy: IncidenceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Incidence!]
+}
+
+type StreetConnection {
+  pageInfo: PageInfo!
+  edges: [StreetEdge]!
+  aggregate: AggregateStreet!
+}
+
+input StreetCreateInput {
+  id: ID
+  name: String!
+  city: CityCreateOneWithoutStreetsInput!
+  incidences: IncidenceCreateManyWithoutStreetInput
+}
+
+input StreetCreateManyWithoutCityInput {
+  create: [StreetCreateWithoutCityInput!]
+  connect: [StreetWhereUniqueInput!]
+}
+
+input StreetCreateOneInput {
+  create: StreetCreateInput
+  connect: StreetWhereUniqueInput
+}
+
+input StreetCreateOneWithoutIncidencesInput {
+  create: StreetCreateWithoutIncidencesInput
+  connect: StreetWhereUniqueInput
+}
+
+input StreetCreateWithoutCityInput {
+  id: ID
+  name: String!
+  incidences: IncidenceCreateManyWithoutStreetInput
+}
+
+input StreetCreateWithoutIncidencesInput {
+  id: ID
+  name: String!
+  city: CityCreateOneWithoutStreetsInput!
+}
+
+type StreetEdge {
+  node: Street!
+  cursor: String!
+}
+
+enum StreetOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+}
+
+type StreetPreviousValues {
+  id: ID!
+  name: String!
+}
+
+input StreetScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  AND: [StreetScalarWhereInput!]
+  OR: [StreetScalarWhereInput!]
+  NOT: [StreetScalarWhereInput!]
+}
+
+type StreetSubscriptionPayload {
+  mutation: MutationType!
+  node: Street
+  updatedFields: [String!]
+  previousValues: StreetPreviousValues
+}
+
+input StreetSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: StreetWhereInput
+  AND: [StreetSubscriptionWhereInput!]
+  OR: [StreetSubscriptionWhereInput!]
+  NOT: [StreetSubscriptionWhereInput!]
+}
+
+input StreetUpdateDataInput {
+  name: String
+  city: CityUpdateOneRequiredWithoutStreetsInput
+  incidences: IncidenceUpdateManyWithoutStreetInput
+}
+
+input StreetUpdateInput {
+  name: String
+  city: CityUpdateOneRequiredWithoutStreetsInput
+  incidences: IncidenceUpdateManyWithoutStreetInput
+}
+
+input StreetUpdateManyDataInput {
+  name: String
+}
+
+input StreetUpdateManyMutationInput {
+  name: String
+}
+
+input StreetUpdateManyWithoutCityInput {
+  create: [StreetCreateWithoutCityInput!]
+  delete: [StreetWhereUniqueInput!]
+  connect: [StreetWhereUniqueInput!]
+  set: [StreetWhereUniqueInput!]
+  disconnect: [StreetWhereUniqueInput!]
+  update: [StreetUpdateWithWhereUniqueWithoutCityInput!]
+  upsert: [StreetUpsertWithWhereUniqueWithoutCityInput!]
+  deleteMany: [StreetScalarWhereInput!]
+  updateMany: [StreetUpdateManyWithWhereNestedInput!]
+}
+
+input StreetUpdateManyWithWhereNestedInput {
+  where: StreetScalarWhereInput!
+  data: StreetUpdateManyDataInput!
+}
+
+input StreetUpdateOneRequiredInput {
+  create: StreetCreateInput
+  update: StreetUpdateDataInput
+  upsert: StreetUpsertNestedInput
+  connect: StreetWhereUniqueInput
+}
+
+input StreetUpdateOneRequiredWithoutIncidencesInput {
+  create: StreetCreateWithoutIncidencesInput
+  update: StreetUpdateWithoutIncidencesDataInput
+  upsert: StreetUpsertWithoutIncidencesInput
+  connect: StreetWhereUniqueInput
+}
+
+input StreetUpdateWithoutCityDataInput {
+  name: String
+  incidences: IncidenceUpdateManyWithoutStreetInput
+}
+
+input StreetUpdateWithoutIncidencesDataInput {
+  name: String
+  city: CityUpdateOneRequiredWithoutStreetsInput
+}
+
+input StreetUpdateWithWhereUniqueWithoutCityInput {
+  where: StreetWhereUniqueInput!
+  data: StreetUpdateWithoutCityDataInput!
+}
+
+input StreetUpsertNestedInput {
+  update: StreetUpdateDataInput!
+  create: StreetCreateInput!
+}
+
+input StreetUpsertWithoutIncidencesInput {
+  update: StreetUpdateWithoutIncidencesDataInput!
+  create: StreetCreateWithoutIncidencesInput!
+}
+
+input StreetUpsertWithWhereUniqueWithoutCityInput {
+  where: StreetWhereUniqueInput!
+  update: StreetUpdateWithoutCityDataInput!
+  create: StreetCreateWithoutCityInput!
+}
+
+input StreetWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  city: CityWhereInput
+  incidences_every: IncidenceWhereInput
+  incidences_some: IncidenceWhereInput
+  incidences_none: IncidenceWhereInput
+  AND: [StreetWhereInput!]
+  OR: [StreetWhereInput!]
+  NOT: [StreetWhereInput!]
+}
+
+input StreetWhereUniqueInput {
+  id: ID
+}
+
 type Subscription {
+  assessment(where: AssessmentSubscriptionWhereInput): AssessmentSubscriptionPayload
+  category(where: CategorySubscriptionWhereInput): CategorySubscriptionPayload
+  city(where: CitySubscriptionWhereInput): CitySubscriptionPayload
+  difficulty(where: DifficultySubscriptionWhereInput): DifficultySubscriptionPayload
+  establishment(where: EstablishmentSubscriptionWhereInput): EstablishmentSubscriptionPayload
+  establishmentType(where: EstablishmentTypeSubscriptionWhereInput): EstablishmentTypeSubscriptionPayload
+  gravity(where: GravitySubscriptionWhereInput): GravitySubscriptionPayload
+  incidence(where: IncidenceSubscriptionWhereInput): IncidenceSubscriptionPayload
+  incidenceType(where: IncidenceTypeSubscriptionWhereInput): IncidenceTypeSubscriptionPayload
+  street(where: StreetSubscriptionWhereInput): StreetSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
 }
 
@@ -61,6 +2376,9 @@ type User {
   email: String!
   password: String!
   role: Role!
+  difficulties(where: DifficultyWhereInput, orderBy: DifficultyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Difficulty!]
+  assessments(where: AssessmentWhereInput, orderBy: AssessmentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Assessment!]
+  incidences(where: IncidenceWhereInput, orderBy: IncidenceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Incidence!]
 }
 
 type UserConnection {
@@ -74,6 +2392,56 @@ input UserCreateInput {
   email: String!
   password: String!
   role: Role
+  difficulties: DifficultyCreateManyWithoutUsersInput
+  assessments: AssessmentCreateManyWithoutUserInput
+  incidences: IncidenceCreateManyWithoutUserInput
+}
+
+input UserCreateManyWithoutDifficultiesInput {
+  create: [UserCreateWithoutDifficultiesInput!]
+  connect: [UserWhereUniqueInput!]
+}
+
+input UserCreateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutAssessmentsInput {
+  create: UserCreateWithoutAssessmentsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutIncidencesInput {
+  create: UserCreateWithoutIncidencesInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutAssessmentsInput {
+  id: ID
+  email: String!
+  password: String!
+  role: Role
+  difficulties: DifficultyCreateManyWithoutUsersInput
+  incidences: IncidenceCreateManyWithoutUserInput
+}
+
+input UserCreateWithoutDifficultiesInput {
+  id: ID
+  email: String!
+  password: String!
+  role: Role
+  assessments: AssessmentCreateManyWithoutUserInput
+  incidences: IncidenceCreateManyWithoutUserInput
+}
+
+input UserCreateWithoutIncidencesInput {
+  id: ID
+  email: String!
+  password: String!
+  role: Role
+  difficulties: DifficultyCreateManyWithoutUsersInput
+  assessments: AssessmentCreateManyWithoutUserInput
 }
 
 type UserEdge {
@@ -99,6 +2467,58 @@ type UserPreviousValues {
   role: Role!
 }
 
+input UserScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  role: Role
+  role_not: Role
+  role_in: [Role!]
+  role_not_in: [Role!]
+  AND: [UserScalarWhereInput!]
+  OR: [UserScalarWhereInput!]
+  NOT: [UserScalarWhereInput!]
+}
+
 type UserSubscriptionPayload {
   mutation: MutationType!
   node: User
@@ -117,7 +2537,25 @@ input UserSubscriptionWhereInput {
   NOT: [UserSubscriptionWhereInput!]
 }
 
+input UserUpdateDataInput {
+  email: String
+  password: String
+  role: Role
+  difficulties: DifficultyUpdateManyWithoutUsersInput
+  assessments: AssessmentUpdateManyWithoutUserInput
+  incidences: IncidenceUpdateManyWithoutUserInput
+}
+
 input UserUpdateInput {
+  email: String
+  password: String
+  role: Role
+  difficulties: DifficultyUpdateManyWithoutUsersInput
+  assessments: AssessmentUpdateManyWithoutUserInput
+  incidences: IncidenceUpdateManyWithoutUserInput
+}
+
+input UserUpdateManyDataInput {
   email: String
   password: String
   role: Role
@@ -127,6 +2565,94 @@ input UserUpdateManyMutationInput {
   email: String
   password: String
   role: Role
+}
+
+input UserUpdateManyWithoutDifficultiesInput {
+  create: [UserCreateWithoutDifficultiesInput!]
+  delete: [UserWhereUniqueInput!]
+  connect: [UserWhereUniqueInput!]
+  set: [UserWhereUniqueInput!]
+  disconnect: [UserWhereUniqueInput!]
+  update: [UserUpdateWithWhereUniqueWithoutDifficultiesInput!]
+  upsert: [UserUpsertWithWhereUniqueWithoutDifficultiesInput!]
+  deleteMany: [UserScalarWhereInput!]
+  updateMany: [UserUpdateManyWithWhereNestedInput!]
+}
+
+input UserUpdateManyWithWhereNestedInput {
+  where: UserScalarWhereInput!
+  data: UserUpdateManyDataInput!
+}
+
+input UserUpdateOneRequiredInput {
+  create: UserCreateInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutAssessmentsInput {
+  create: UserCreateWithoutAssessmentsInput
+  update: UserUpdateWithoutAssessmentsDataInput
+  upsert: UserUpsertWithoutAssessmentsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutIncidencesInput {
+  create: UserCreateWithoutIncidencesInput
+  update: UserUpdateWithoutIncidencesDataInput
+  upsert: UserUpsertWithoutIncidencesInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateWithoutAssessmentsDataInput {
+  email: String
+  password: String
+  role: Role
+  difficulties: DifficultyUpdateManyWithoutUsersInput
+  incidences: IncidenceUpdateManyWithoutUserInput
+}
+
+input UserUpdateWithoutDifficultiesDataInput {
+  email: String
+  password: String
+  role: Role
+  assessments: AssessmentUpdateManyWithoutUserInput
+  incidences: IncidenceUpdateManyWithoutUserInput
+}
+
+input UserUpdateWithoutIncidencesDataInput {
+  email: String
+  password: String
+  role: Role
+  difficulties: DifficultyUpdateManyWithoutUsersInput
+  assessments: AssessmentUpdateManyWithoutUserInput
+}
+
+input UserUpdateWithWhereUniqueWithoutDifficultiesInput {
+  where: UserWhereUniqueInput!
+  data: UserUpdateWithoutDifficultiesDataInput!
+}
+
+input UserUpsertNestedInput {
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
+}
+
+input UserUpsertWithoutAssessmentsInput {
+  update: UserUpdateWithoutAssessmentsDataInput!
+  create: UserCreateWithoutAssessmentsInput!
+}
+
+input UserUpsertWithoutIncidencesInput {
+  update: UserUpdateWithoutIncidencesDataInput!
+  create: UserCreateWithoutIncidencesInput!
+}
+
+input UserUpsertWithWhereUniqueWithoutDifficultiesInput {
+  where: UserWhereUniqueInput!
+  update: UserUpdateWithoutDifficultiesDataInput!
+  create: UserCreateWithoutDifficultiesInput!
 }
 
 input UserWhereInput {
@@ -176,6 +2702,15 @@ input UserWhereInput {
   role_not: Role
   role_in: [Role!]
   role_not_in: [Role!]
+  difficulties_every: DifficultyWhereInput
+  difficulties_some: DifficultyWhereInput
+  difficulties_none: DifficultyWhereInput
+  assessments_every: AssessmentWhereInput
+  assessments_some: AssessmentWhereInput
+  assessments_none: AssessmentWhereInput
+  incidences_every: IncidenceWhereInput
+  incidences_some: IncidenceWhereInput
+  incidences_none: IncidenceWhereInput
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]

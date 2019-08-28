@@ -9,7 +9,47 @@ var models = [
     embedded: false
   },
   {
+    name: "Difficulty",
+    embedded: false
+  },
+  {
     name: "User",
+    embedded: false
+  },
+  {
+    name: "Category",
+    embedded: false
+  },
+  {
+    name: "IncidenceType",
+    embedded: false
+  },
+  {
+    name: "Gravity",
+    embedded: false
+  },
+  {
+    name: "City",
+    embedded: false
+  },
+  {
+    name: "Street",
+    embedded: false
+  },
+  {
+    name: "Incidence",
+    embedded: false
+  },
+  {
+    name: "EstablishmentType",
+    embedded: false
+  },
+  {
+    name: "Establishment",
+    embedded: false
+  },
+  {
+    name: "Assessment",
     embedded: false
   }
 ];

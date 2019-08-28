@@ -16,6 +16,16 @@ export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
 export type Maybe<T> = T | undefined | null;
 
 export interface Exists {
+  assessment: (where?: AssessmentWhereInput) => Promise<boolean>;
+  category: (where?: CategoryWhereInput) => Promise<boolean>;
+  city: (where?: CityWhereInput) => Promise<boolean>;
+  difficulty: (where?: DifficultyWhereInput) => Promise<boolean>;
+  establishment: (where?: EstablishmentWhereInput) => Promise<boolean>;
+  establishmentType: (where?: EstablishmentTypeWhereInput) => Promise<boolean>;
+  gravity: (where?: GravityWhereInput) => Promise<boolean>;
+  incidence: (where?: IncidenceWhereInput) => Promise<boolean>;
+  incidenceType: (where?: IncidenceTypeWhereInput) => Promise<boolean>;
+  street: (where?: StreetWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
 }
 
@@ -38,6 +48,202 @@ export interface Prisma {
    * Queries
    */
 
+  assessment: (where: AssessmentWhereUniqueInput) => AssessmentNullablePromise;
+  assessments: (args?: {
+    where?: AssessmentWhereInput;
+    orderBy?: AssessmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Assessment>;
+  assessmentsConnection: (args?: {
+    where?: AssessmentWhereInput;
+    orderBy?: AssessmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => AssessmentConnectionPromise;
+  category: (where: CategoryWhereUniqueInput) => CategoryNullablePromise;
+  categories: (args?: {
+    where?: CategoryWhereInput;
+    orderBy?: CategoryOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Category>;
+  categoriesConnection: (args?: {
+    where?: CategoryWhereInput;
+    orderBy?: CategoryOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => CategoryConnectionPromise;
+  city: (where: CityWhereUniqueInput) => CityNullablePromise;
+  cities: (args?: {
+    where?: CityWhereInput;
+    orderBy?: CityOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<City>;
+  citiesConnection: (args?: {
+    where?: CityWhereInput;
+    orderBy?: CityOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => CityConnectionPromise;
+  difficulty: (where: DifficultyWhereUniqueInput) => DifficultyNullablePromise;
+  difficulties: (args?: {
+    where?: DifficultyWhereInput;
+    orderBy?: DifficultyOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Difficulty>;
+  difficultiesConnection: (args?: {
+    where?: DifficultyWhereInput;
+    orderBy?: DifficultyOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => DifficultyConnectionPromise;
+  establishment: (
+    where: EstablishmentWhereUniqueInput
+  ) => EstablishmentNullablePromise;
+  establishments: (args?: {
+    where?: EstablishmentWhereInput;
+    orderBy?: EstablishmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Establishment>;
+  establishmentsConnection: (args?: {
+    where?: EstablishmentWhereInput;
+    orderBy?: EstablishmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => EstablishmentConnectionPromise;
+  establishmentType: (
+    where: EstablishmentTypeWhereUniqueInput
+  ) => EstablishmentTypeNullablePromise;
+  establishmentTypes: (args?: {
+    where?: EstablishmentTypeWhereInput;
+    orderBy?: EstablishmentTypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<EstablishmentType>;
+  establishmentTypesConnection: (args?: {
+    where?: EstablishmentTypeWhereInput;
+    orderBy?: EstablishmentTypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => EstablishmentTypeConnectionPromise;
+  gravity: (where: GravityWhereUniqueInput) => GravityNullablePromise;
+  gravities: (args?: {
+    where?: GravityWhereInput;
+    orderBy?: GravityOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Gravity>;
+  gravitiesConnection: (args?: {
+    where?: GravityWhereInput;
+    orderBy?: GravityOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => GravityConnectionPromise;
+  incidence: (where: IncidenceWhereUniqueInput) => IncidenceNullablePromise;
+  incidences: (args?: {
+    where?: IncidenceWhereInput;
+    orderBy?: IncidenceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Incidence>;
+  incidencesConnection: (args?: {
+    where?: IncidenceWhereInput;
+    orderBy?: IncidenceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => IncidenceConnectionPromise;
+  incidenceType: (
+    where: IncidenceTypeWhereUniqueInput
+  ) => IncidenceTypeNullablePromise;
+  incidenceTypes: (args?: {
+    where?: IncidenceTypeWhereInput;
+    orderBy?: IncidenceTypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<IncidenceType>;
+  incidenceTypesConnection: (args?: {
+    where?: IncidenceTypeWhereInput;
+    orderBy?: IncidenceTypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => IncidenceTypeConnectionPromise;
+  street: (where: StreetWhereUniqueInput) => StreetNullablePromise;
+  streets: (args?: {
+    where?: StreetWhereInput;
+    orderBy?: StreetOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Street>;
+  streetsConnection: (args?: {
+    where?: StreetWhereInput;
+    orderBy?: StreetOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => StreetConnectionPromise;
   user: (where: UserWhereUniqueInput) => UserNullablePromise;
   users: (args?: {
     where?: UserWhereInput;
@@ -63,6 +269,180 @@ export interface Prisma {
    * Mutations
    */
 
+  createAssessment: (data: AssessmentCreateInput) => AssessmentPromise;
+  updateAssessment: (args: {
+    data: AssessmentUpdateInput;
+    where: AssessmentWhereUniqueInput;
+  }) => AssessmentPromise;
+  updateManyAssessments: (args: {
+    data: AssessmentUpdateManyMutationInput;
+    where?: AssessmentWhereInput;
+  }) => BatchPayloadPromise;
+  upsertAssessment: (args: {
+    where: AssessmentWhereUniqueInput;
+    create: AssessmentCreateInput;
+    update: AssessmentUpdateInput;
+  }) => AssessmentPromise;
+  deleteAssessment: (where: AssessmentWhereUniqueInput) => AssessmentPromise;
+  deleteManyAssessments: (where?: AssessmentWhereInput) => BatchPayloadPromise;
+  createCategory: (data: CategoryCreateInput) => CategoryPromise;
+  updateCategory: (args: {
+    data: CategoryUpdateInput;
+    where: CategoryWhereUniqueInput;
+  }) => CategoryPromise;
+  updateManyCategories: (args: {
+    data: CategoryUpdateManyMutationInput;
+    where?: CategoryWhereInput;
+  }) => BatchPayloadPromise;
+  upsertCategory: (args: {
+    where: CategoryWhereUniqueInput;
+    create: CategoryCreateInput;
+    update: CategoryUpdateInput;
+  }) => CategoryPromise;
+  deleteCategory: (where: CategoryWhereUniqueInput) => CategoryPromise;
+  deleteManyCategories: (where?: CategoryWhereInput) => BatchPayloadPromise;
+  createCity: (data: CityCreateInput) => CityPromise;
+  updateCity: (args: {
+    data: CityUpdateInput;
+    where: CityWhereUniqueInput;
+  }) => CityPromise;
+  updateManyCities: (args: {
+    data: CityUpdateManyMutationInput;
+    where?: CityWhereInput;
+  }) => BatchPayloadPromise;
+  upsertCity: (args: {
+    where: CityWhereUniqueInput;
+    create: CityCreateInput;
+    update: CityUpdateInput;
+  }) => CityPromise;
+  deleteCity: (where: CityWhereUniqueInput) => CityPromise;
+  deleteManyCities: (where?: CityWhereInput) => BatchPayloadPromise;
+  createDifficulty: (data: DifficultyCreateInput) => DifficultyPromise;
+  updateDifficulty: (args: {
+    data: DifficultyUpdateInput;
+    where: DifficultyWhereUniqueInput;
+  }) => DifficultyPromise;
+  updateManyDifficulties: (args: {
+    data: DifficultyUpdateManyMutationInput;
+    where?: DifficultyWhereInput;
+  }) => BatchPayloadPromise;
+  upsertDifficulty: (args: {
+    where: DifficultyWhereUniqueInput;
+    create: DifficultyCreateInput;
+    update: DifficultyUpdateInput;
+  }) => DifficultyPromise;
+  deleteDifficulty: (where: DifficultyWhereUniqueInput) => DifficultyPromise;
+  deleteManyDifficulties: (where?: DifficultyWhereInput) => BatchPayloadPromise;
+  createEstablishment: (data: EstablishmentCreateInput) => EstablishmentPromise;
+  updateEstablishment: (args: {
+    data: EstablishmentUpdateInput;
+    where: EstablishmentWhereUniqueInput;
+  }) => EstablishmentPromise;
+  updateManyEstablishments: (args: {
+    data: EstablishmentUpdateManyMutationInput;
+    where?: EstablishmentWhereInput;
+  }) => BatchPayloadPromise;
+  upsertEstablishment: (args: {
+    where: EstablishmentWhereUniqueInput;
+    create: EstablishmentCreateInput;
+    update: EstablishmentUpdateInput;
+  }) => EstablishmentPromise;
+  deleteEstablishment: (
+    where: EstablishmentWhereUniqueInput
+  ) => EstablishmentPromise;
+  deleteManyEstablishments: (
+    where?: EstablishmentWhereInput
+  ) => BatchPayloadPromise;
+  createEstablishmentType: (
+    data: EstablishmentTypeCreateInput
+  ) => EstablishmentTypePromise;
+  updateEstablishmentType: (args: {
+    data: EstablishmentTypeUpdateInput;
+    where: EstablishmentTypeWhereUniqueInput;
+  }) => EstablishmentTypePromise;
+  updateManyEstablishmentTypes: (args: {
+    data: EstablishmentTypeUpdateManyMutationInput;
+    where?: EstablishmentTypeWhereInput;
+  }) => BatchPayloadPromise;
+  upsertEstablishmentType: (args: {
+    where: EstablishmentTypeWhereUniqueInput;
+    create: EstablishmentTypeCreateInput;
+    update: EstablishmentTypeUpdateInput;
+  }) => EstablishmentTypePromise;
+  deleteEstablishmentType: (
+    where: EstablishmentTypeWhereUniqueInput
+  ) => EstablishmentTypePromise;
+  deleteManyEstablishmentTypes: (
+    where?: EstablishmentTypeWhereInput
+  ) => BatchPayloadPromise;
+  createGravity: (data: GravityCreateInput) => GravityPromise;
+  updateGravity: (args: {
+    data: GravityUpdateInput;
+    where: GravityWhereUniqueInput;
+  }) => GravityPromise;
+  updateManyGravities: (args: {
+    data: GravityUpdateManyMutationInput;
+    where?: GravityWhereInput;
+  }) => BatchPayloadPromise;
+  upsertGravity: (args: {
+    where: GravityWhereUniqueInput;
+    create: GravityCreateInput;
+    update: GravityUpdateInput;
+  }) => GravityPromise;
+  deleteGravity: (where: GravityWhereUniqueInput) => GravityPromise;
+  deleteManyGravities: (where?: GravityWhereInput) => BatchPayloadPromise;
+  createIncidence: (data: IncidenceCreateInput) => IncidencePromise;
+  updateIncidence: (args: {
+    data: IncidenceUpdateInput;
+    where: IncidenceWhereUniqueInput;
+  }) => IncidencePromise;
+  updateManyIncidences: (args: {
+    data: IncidenceUpdateManyMutationInput;
+    where?: IncidenceWhereInput;
+  }) => BatchPayloadPromise;
+  upsertIncidence: (args: {
+    where: IncidenceWhereUniqueInput;
+    create: IncidenceCreateInput;
+    update: IncidenceUpdateInput;
+  }) => IncidencePromise;
+  deleteIncidence: (where: IncidenceWhereUniqueInput) => IncidencePromise;
+  deleteManyIncidences: (where?: IncidenceWhereInput) => BatchPayloadPromise;
+  createIncidenceType: (data: IncidenceTypeCreateInput) => IncidenceTypePromise;
+  updateIncidenceType: (args: {
+    data: IncidenceTypeUpdateInput;
+    where: IncidenceTypeWhereUniqueInput;
+  }) => IncidenceTypePromise;
+  updateManyIncidenceTypes: (args: {
+    data: IncidenceTypeUpdateManyMutationInput;
+    where?: IncidenceTypeWhereInput;
+  }) => BatchPayloadPromise;
+  upsertIncidenceType: (args: {
+    where: IncidenceTypeWhereUniqueInput;
+    create: IncidenceTypeCreateInput;
+    update: IncidenceTypeUpdateInput;
+  }) => IncidenceTypePromise;
+  deleteIncidenceType: (
+    where: IncidenceTypeWhereUniqueInput
+  ) => IncidenceTypePromise;
+  deleteManyIncidenceTypes: (
+    where?: IncidenceTypeWhereInput
+  ) => BatchPayloadPromise;
+  createStreet: (data: StreetCreateInput) => StreetPromise;
+  updateStreet: (args: {
+    data: StreetUpdateInput;
+    where: StreetWhereUniqueInput;
+  }) => StreetPromise;
+  updateManyStreets: (args: {
+    data: StreetUpdateManyMutationInput;
+    where?: StreetWhereInput;
+  }) => BatchPayloadPromise;
+  upsertStreet: (args: {
+    where: StreetWhereUniqueInput;
+    create: StreetCreateInput;
+    update: StreetUpdateInput;
+  }) => StreetPromise;
+  deleteStreet: (where: StreetWhereUniqueInput) => StreetPromise;
+  deleteManyStreets: (where?: StreetWhereInput) => BatchPayloadPromise;
   createUser: (data: UserCreateInput) => UserPromise;
   updateUser: (args: {
     data: UserUpdateInput;
@@ -88,6 +468,36 @@ export interface Prisma {
 }
 
 export interface Subscription {
+  assessment: (
+    where?: AssessmentSubscriptionWhereInput
+  ) => AssessmentSubscriptionPayloadSubscription;
+  category: (
+    where?: CategorySubscriptionWhereInput
+  ) => CategorySubscriptionPayloadSubscription;
+  city: (
+    where?: CitySubscriptionWhereInput
+  ) => CitySubscriptionPayloadSubscription;
+  difficulty: (
+    where?: DifficultySubscriptionWhereInput
+  ) => DifficultySubscriptionPayloadSubscription;
+  establishment: (
+    where?: EstablishmentSubscriptionWhereInput
+  ) => EstablishmentSubscriptionPayloadSubscription;
+  establishmentType: (
+    where?: EstablishmentTypeSubscriptionWhereInput
+  ) => EstablishmentTypeSubscriptionPayloadSubscription;
+  gravity: (
+    where?: GravitySubscriptionWhereInput
+  ) => GravitySubscriptionPayloadSubscription;
+  incidence: (
+    where?: IncidenceSubscriptionWhereInput
+  ) => IncidenceSubscriptionPayloadSubscription;
+  incidenceType: (
+    where?: IncidenceTypeSubscriptionWhereInput
+  ) => IncidenceTypeSubscriptionPayloadSubscription;
+  street: (
+    where?: StreetSubscriptionWhereInput
+  ) => StreetSubscriptionPayloadSubscription;
   user: (
     where?: UserSubscriptionWhereInput
   ) => UserSubscriptionPayloadSubscription;
@@ -101,6 +511,36 @@ export interface ClientConstructor<T> {
  * Types
  */
 
+export type EstablishmentOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "latitude_ASC"
+  | "latitude_DESC"
+  | "longitude_ASC"
+  | "longitude_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "description_ASC"
+  | "description_DESC";
+
+export type DifficultyOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC";
+
+export type IncidenceTypeOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC";
+
+export type GravityOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC";
+
 export type UserOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -111,27 +551,460 @@ export type UserOrderByInput =
   | "role_ASC"
   | "role_DESC";
 
-export type Role = "ADMIN" | "REVIEWER" | "USER";
+export type AssessmentOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "score_ASC"
+  | "score_DESC"
+  | "description_ASC"
+  | "description_DESC";
+
+export type IncidenceOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "latitude_ASC"
+  | "latitude_DESC"
+  | "longitude_ASC"
+  | "longitude_DESC"
+  | "comment_ASC"
+  | "comment_DESC"
+  | "state_ASC"
+  | "state_DESC";
+
+export type StreetOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC";
+
+export type EstablishmentTypeOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
-export interface UserCreateInput {
+export type CategoryOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC";
+
+export type Role = "ADMIN" | "REVIEWER" | "USER";
+
+export type CityOrderByInput = "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC";
+
+export interface IncidenceUpdateManyDataInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  comment?: Maybe<String>;
+  state?: Maybe<String>;
+}
+
+export type AssessmentWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface AssessmentUpdateWithWhereUniqueWithoutUserInput {
+  where: AssessmentWhereUniqueInput;
+  data: AssessmentUpdateWithoutUserDataInput;
+}
+
+export interface GravityWhereInput {
   id?: Maybe<ID_Input>;
-  email: String;
-  password: String;
-  role?: Maybe<Role>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  incidences_every?: Maybe<IncidenceWhereInput>;
+  incidences_some?: Maybe<IncidenceWhereInput>;
+  incidences_none?: Maybe<IncidenceWhereInput>;
+  AND?: Maybe<GravityWhereInput[] | GravityWhereInput>;
+  OR?: Maybe<GravityWhereInput[] | GravityWhereInput>;
+  NOT?: Maybe<GravityWhereInput[] | GravityWhereInput>;
 }
 
-export interface UserUpdateInput {
-  email?: Maybe<String>;
-  password?: Maybe<String>;
-  role?: Maybe<Role>;
+export interface AssessmentUpdateWithoutUserDataInput {
+  score?: Maybe<Int>;
+  description?: Maybe<String>;
+  establishment?: Maybe<EstablishmentUpdateOneRequiredWithoutAssessmentsInput>;
 }
 
-export interface UserUpdateManyMutationInput {
-  email?: Maybe<String>;
-  password?: Maybe<String>;
-  role?: Maybe<Role>;
+export interface CategoryWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  inctypes_every?: Maybe<IncidenceTypeWhereInput>;
+  inctypes_some?: Maybe<IncidenceTypeWhereInput>;
+  inctypes_none?: Maybe<IncidenceTypeWhereInput>;
+  AND?: Maybe<CategoryWhereInput[] | CategoryWhereInput>;
+  OR?: Maybe<CategoryWhereInput[] | CategoryWhereInput>;
+  NOT?: Maybe<CategoryWhereInput[] | CategoryWhereInput>;
+}
+
+export interface AssessmentUpsertWithWhereUniqueWithoutUserInput {
+  where: AssessmentWhereUniqueInput;
+  update: AssessmentUpdateWithoutUserDataInput;
+  create: AssessmentCreateWithoutUserInput;
+}
+
+export interface IncidenceWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  latitude?: Maybe<Float>;
+  latitude_not?: Maybe<Float>;
+  latitude_in?: Maybe<Float[] | Float>;
+  latitude_not_in?: Maybe<Float[] | Float>;
+  latitude_lt?: Maybe<Float>;
+  latitude_lte?: Maybe<Float>;
+  latitude_gt?: Maybe<Float>;
+  latitude_gte?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  longitude_not?: Maybe<Float>;
+  longitude_in?: Maybe<Float[] | Float>;
+  longitude_not_in?: Maybe<Float[] | Float>;
+  longitude_lt?: Maybe<Float>;
+  longitude_lte?: Maybe<Float>;
+  longitude_gt?: Maybe<Float>;
+  longitude_gte?: Maybe<Float>;
+  comment?: Maybe<String>;
+  comment_not?: Maybe<String>;
+  comment_in?: Maybe<String[] | String>;
+  comment_not_in?: Maybe<String[] | String>;
+  comment_lt?: Maybe<String>;
+  comment_lte?: Maybe<String>;
+  comment_gt?: Maybe<String>;
+  comment_gte?: Maybe<String>;
+  comment_contains?: Maybe<String>;
+  comment_not_contains?: Maybe<String>;
+  comment_starts_with?: Maybe<String>;
+  comment_not_starts_with?: Maybe<String>;
+  comment_ends_with?: Maybe<String>;
+  comment_not_ends_with?: Maybe<String>;
+  state?: Maybe<String>;
+  state_not?: Maybe<String>;
+  state_in?: Maybe<String[] | String>;
+  state_not_in?: Maybe<String[] | String>;
+  state_lt?: Maybe<String>;
+  state_lte?: Maybe<String>;
+  state_gt?: Maybe<String>;
+  state_gte?: Maybe<String>;
+  state_contains?: Maybe<String>;
+  state_not_contains?: Maybe<String>;
+  state_starts_with?: Maybe<String>;
+  state_not_starts_with?: Maybe<String>;
+  state_ends_with?: Maybe<String>;
+  state_not_ends_with?: Maybe<String>;
+  street?: Maybe<StreetWhereInput>;
+  user?: Maybe<UserWhereInput>;
+  gravity?: Maybe<GravityWhereInput>;
+  typeinc?: Maybe<IncidenceTypeWhereInput>;
+  AND?: Maybe<IncidenceWhereInput[] | IncidenceWhereInput>;
+  OR?: Maybe<IncidenceWhereInput[] | IncidenceWhereInput>;
+  NOT?: Maybe<IncidenceWhereInput[] | IncidenceWhereInput>;
+}
+
+export interface AssessmentScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  score?: Maybe<Int>;
+  score_not?: Maybe<Int>;
+  score_in?: Maybe<Int[] | Int>;
+  score_not_in?: Maybe<Int[] | Int>;
+  score_lt?: Maybe<Int>;
+  score_lte?: Maybe<Int>;
+  score_gt?: Maybe<Int>;
+  score_gte?: Maybe<Int>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  AND?: Maybe<AssessmentScalarWhereInput[] | AssessmentScalarWhereInput>;
+  OR?: Maybe<AssessmentScalarWhereInput[] | AssessmentScalarWhereInput>;
+  NOT?: Maybe<AssessmentScalarWhereInput[] | AssessmentScalarWhereInput>;
+}
+
+export interface CityWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  streets_every?: Maybe<StreetWhereInput>;
+  streets_some?: Maybe<StreetWhereInput>;
+  streets_none?: Maybe<StreetWhereInput>;
+  AND?: Maybe<CityWhereInput[] | CityWhereInput>;
+  OR?: Maybe<CityWhereInput[] | CityWhereInput>;
+  NOT?: Maybe<CityWhereInput[] | CityWhereInput>;
+}
+
+export interface DifficultyUpsertWithWhereUniqueWithoutUsersInput {
+  where: DifficultyWhereUniqueInput;
+  update: DifficultyUpdateWithoutUsersDataInput;
+  create: DifficultyCreateWithoutUsersInput;
+}
+
+export interface EstablishmentCreateInput {
+  id?: Maybe<ID_Input>;
+  latitude: Float;
+  longitude: Float;
+  name: String;
+  description?: Maybe<String>;
+  user: UserCreateOneInput;
+  street: StreetCreateOneInput;
+  Esttype: EstablishmentTypeCreateOneWithoutEstablishmentInput;
+  assessments?: Maybe<AssessmentCreateManyWithoutEstablishmentInput>;
+}
+
+export interface DifficultyScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  AND?: Maybe<DifficultyScalarWhereInput[] | DifficultyScalarWhereInput>;
+  OR?: Maybe<DifficultyScalarWhereInput[] | DifficultyScalarWhereInput>;
+  NOT?: Maybe<DifficultyScalarWhereInput[] | DifficultyScalarWhereInput>;
+}
+
+export interface AssessmentUpdateManyWithWhereNestedInput {
+  where: AssessmentScalarWhereInput;
+  data: AssessmentUpdateManyDataInput;
+}
+
+export interface DifficultyUpdateManyWithWhereNestedInput {
+  where: DifficultyScalarWhereInput;
+  data: DifficultyUpdateManyDataInput;
+}
+
+export interface StreetSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<StreetWhereInput>;
+  AND?: Maybe<StreetSubscriptionWhereInput[] | StreetSubscriptionWhereInput>;
+  OR?: Maybe<StreetSubscriptionWhereInput[] | StreetSubscriptionWhereInput>;
+  NOT?: Maybe<StreetSubscriptionWhereInput[] | StreetSubscriptionWhereInput>;
+}
+
+export interface DifficultyUpdateManyDataInput {
+  name?: Maybe<String>;
+}
+
+export interface IncidenceTypeSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<IncidenceTypeWhereInput>;
+  AND?: Maybe<
+    IncidenceTypeSubscriptionWhereInput[] | IncidenceTypeSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    IncidenceTypeSubscriptionWhereInput[] | IncidenceTypeSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    IncidenceTypeSubscriptionWhereInput[] | IncidenceTypeSubscriptionWhereInput
+  >;
+}
+
+export interface IncidenceUpdateManyWithoutUserInput {
+  create?: Maybe<
+    IncidenceCreateWithoutUserInput[] | IncidenceCreateWithoutUserInput
+  >;
+  delete?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  connect?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  set?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  disconnect?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  update?: Maybe<
+    | IncidenceUpdateWithWhereUniqueWithoutUserInput[]
+    | IncidenceUpdateWithWhereUniqueWithoutUserInput
+  >;
+  upsert?: Maybe<
+    | IncidenceUpsertWithWhereUniqueWithoutUserInput[]
+    | IncidenceUpsertWithWhereUniqueWithoutUserInput
+  >;
+  deleteMany?: Maybe<IncidenceScalarWhereInput[] | IncidenceScalarWhereInput>;
+  updateMany?: Maybe<
+    | IncidenceUpdateManyWithWhereNestedInput[]
+    | IncidenceUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface GravitySubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<GravityWhereInput>;
+  AND?: Maybe<GravitySubscriptionWhereInput[] | GravitySubscriptionWhereInput>;
+  OR?: Maybe<GravitySubscriptionWhereInput[] | GravitySubscriptionWhereInput>;
+  NOT?: Maybe<GravitySubscriptionWhereInput[] | GravitySubscriptionWhereInput>;
+}
+
+export interface IncidenceUpdateWithWhereUniqueWithoutUserInput {
+  where: IncidenceWhereUniqueInput;
+  data: IncidenceUpdateWithoutUserDataInput;
+}
+
+export interface EstablishmentTypeSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<EstablishmentTypeWhereInput>;
+  AND?: Maybe<
+    | EstablishmentTypeSubscriptionWhereInput[]
+    | EstablishmentTypeSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | EstablishmentTypeSubscriptionWhereInput[]
+    | EstablishmentTypeSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | EstablishmentTypeSubscriptionWhereInput[]
+    | EstablishmentTypeSubscriptionWhereInput
+  >;
+}
+
+export interface IncidenceUpdateWithoutUserDataInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  comment?: Maybe<String>;
+  state?: Maybe<String>;
+  street?: Maybe<StreetUpdateOneRequiredWithoutIncidencesInput>;
+  gravity?: Maybe<GravityUpdateOneRequiredWithoutIncidencesInput>;
+  typeinc?: Maybe<IncidenceTypeUpdateOneRequiredWithoutIncidencesInput>;
 }
 
 export interface UserWhereInput {
@@ -181,9 +1054,779 @@ export interface UserWhereInput {
   role_not?: Maybe<Role>;
   role_in?: Maybe<Role[] | Role>;
   role_not_in?: Maybe<Role[] | Role>;
+  difficulties_every?: Maybe<DifficultyWhereInput>;
+  difficulties_some?: Maybe<DifficultyWhereInput>;
+  difficulties_none?: Maybe<DifficultyWhereInput>;
+  assessments_every?: Maybe<AssessmentWhereInput>;
+  assessments_some?: Maybe<AssessmentWhereInput>;
+  assessments_none?: Maybe<AssessmentWhereInput>;
+  incidences_every?: Maybe<IncidenceWhereInput>;
+  incidences_some?: Maybe<IncidenceWhereInput>;
+  incidences_none?: Maybe<IncidenceWhereInput>;
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
   OR?: Maybe<UserWhereInput[] | UserWhereInput>;
   NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
+}
+
+export interface StreetUpdateOneRequiredWithoutIncidencesInput {
+  create?: Maybe<StreetCreateWithoutIncidencesInput>;
+  update?: Maybe<StreetUpdateWithoutIncidencesDataInput>;
+  upsert?: Maybe<StreetUpsertWithoutIncidencesInput>;
+  connect?: Maybe<StreetWhereUniqueInput>;
+}
+
+export interface CitySubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<CityWhereInput>;
+  AND?: Maybe<CitySubscriptionWhereInput[] | CitySubscriptionWhereInput>;
+  OR?: Maybe<CitySubscriptionWhereInput[] | CitySubscriptionWhereInput>;
+  NOT?: Maybe<CitySubscriptionWhereInput[] | CitySubscriptionWhereInput>;
+}
+
+export interface StreetUpdateWithoutIncidencesDataInput {
+  name?: Maybe<String>;
+  city?: Maybe<CityUpdateOneRequiredWithoutStreetsInput>;
+}
+
+export interface AssessmentSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<AssessmentWhereInput>;
+  AND?: Maybe<
+    AssessmentSubscriptionWhereInput[] | AssessmentSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    AssessmentSubscriptionWhereInput[] | AssessmentSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    AssessmentSubscriptionWhereInput[] | AssessmentSubscriptionWhereInput
+  >;
+}
+
+export interface CityUpdateOneRequiredWithoutStreetsInput {
+  create?: Maybe<CityCreateWithoutStreetsInput>;
+  update?: Maybe<CityUpdateWithoutStreetsDataInput>;
+  upsert?: Maybe<CityUpsertWithoutStreetsInput>;
+  connect?: Maybe<CityWhereUniqueInput>;
+}
+
+export type CategoryWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface CityUpdateWithoutStreetsDataInput {
+  name?: Maybe<String>;
+}
+
+export interface UserUpdateInput {
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  role?: Maybe<Role>;
+  difficulties?: Maybe<DifficultyUpdateManyWithoutUsersInput>;
+  assessments?: Maybe<AssessmentUpdateManyWithoutUserInput>;
+  incidences?: Maybe<IncidenceUpdateManyWithoutUserInput>;
+}
+
+export interface CityUpsertWithoutStreetsInput {
+  update: CityUpdateWithoutStreetsDataInput;
+  create: CityCreateWithoutStreetsInput;
+}
+
+export interface StreetUpdateInput {
+  name?: Maybe<String>;
+  city?: Maybe<CityUpdateOneRequiredWithoutStreetsInput>;
+  incidences?: Maybe<IncidenceUpdateManyWithoutStreetInput>;
+}
+
+export interface StreetUpsertWithoutIncidencesInput {
+  update: StreetUpdateWithoutIncidencesDataInput;
+  create: StreetCreateWithoutIncidencesInput;
+}
+
+export interface IncidenceTypeUpdateManyMutationInput {
+  name?: Maybe<String>;
+}
+
+export interface GravityUpdateOneRequiredWithoutIncidencesInput {
+  create?: Maybe<GravityCreateWithoutIncidencesInput>;
+  update?: Maybe<GravityUpdateWithoutIncidencesDataInput>;
+  upsert?: Maybe<GravityUpsertWithoutIncidencesInput>;
+  connect?: Maybe<GravityWhereUniqueInput>;
+}
+
+export interface IncidenceTypeCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  category: CategoryCreateOneWithoutInctypesInput;
+  incidences?: Maybe<IncidenceCreateManyWithoutTypeincInput>;
+}
+
+export interface GravityUpdateWithoutIncidencesDataInput {
+  name?: Maybe<String>;
+}
+
+export type DifficultyWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface GravityUpsertWithoutIncidencesInput {
+  update: GravityUpdateWithoutIncidencesDataInput;
+  create: GravityCreateWithoutIncidencesInput;
+}
+
+export interface IncidenceCreateInput {
+  id?: Maybe<ID_Input>;
+  latitude: Float;
+  longitude: Float;
+  comment: String;
+  state: String;
+  street: StreetCreateOneWithoutIncidencesInput;
+  user: UserCreateOneWithoutIncidencesInput;
+  gravity: GravityCreateOneWithoutIncidencesInput;
+  typeinc: IncidenceTypeCreateOneWithoutIncidencesInput;
+}
+
+export interface IncidenceTypeUpdateOneRequiredWithoutIncidencesInput {
+  create?: Maybe<IncidenceTypeCreateWithoutIncidencesInput>;
+  update?: Maybe<IncidenceTypeUpdateWithoutIncidencesDataInput>;
+  upsert?: Maybe<IncidenceTypeUpsertWithoutIncidencesInput>;
+  connect?: Maybe<IncidenceTypeWhereUniqueInput>;
+}
+
+export type EstablishmentWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface IncidenceTypeUpdateWithoutIncidencesDataInput {
+  name?: Maybe<String>;
+  category?: Maybe<CategoryUpdateOneRequiredWithoutInctypesInput>;
+}
+
+export interface IncidenceUpdateWithoutGravityDataInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  comment?: Maybe<String>;
+  state?: Maybe<String>;
+  street?: Maybe<StreetUpdateOneRequiredWithoutIncidencesInput>;
+  user?: Maybe<UserUpdateOneRequiredWithoutIncidencesInput>;
+  typeinc?: Maybe<IncidenceTypeUpdateOneRequiredWithoutIncidencesInput>;
+}
+
+export interface CategoryUpdateOneRequiredWithoutInctypesInput {
+  create?: Maybe<CategoryCreateWithoutInctypesInput>;
+  update?: Maybe<CategoryUpdateWithoutInctypesDataInput>;
+  upsert?: Maybe<CategoryUpsertWithoutInctypesInput>;
+  connect?: Maybe<CategoryWhereUniqueInput>;
+}
+
+export type EstablishmentTypeWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface CategoryUpdateWithoutInctypesDataInput {
+  name?: Maybe<String>;
+}
+
+export interface GravityUpdateInput {
+  name?: Maybe<String>;
+  incidences?: Maybe<IncidenceUpdateManyWithoutGravityInput>;
+}
+
+export interface CategoryUpsertWithoutInctypesInput {
+  update: CategoryUpdateWithoutInctypesDataInput;
+  create: CategoryCreateWithoutInctypesInput;
+}
+
+export interface IncidenceCreateManyWithoutGravityInput {
+  create?: Maybe<
+    IncidenceCreateWithoutGravityInput[] | IncidenceCreateWithoutGravityInput
+  >;
+  connect?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+}
+
+export interface IncidenceTypeUpsertWithoutIncidencesInput {
+  update: IncidenceTypeUpdateWithoutIncidencesDataInput;
+  create: IncidenceTypeCreateWithoutIncidencesInput;
+}
+
+export interface GravityCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  incidences?: Maybe<IncidenceCreateManyWithoutGravityInput>;
+}
+
+export interface IncidenceUpsertWithWhereUniqueWithoutUserInput {
+  where: IncidenceWhereUniqueInput;
+  update: IncidenceUpdateWithoutUserDataInput;
+  create: IncidenceCreateWithoutUserInput;
+}
+
+export interface EstablishmentUpdateManyDataInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface IncidenceScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  latitude?: Maybe<Float>;
+  latitude_not?: Maybe<Float>;
+  latitude_in?: Maybe<Float[] | Float>;
+  latitude_not_in?: Maybe<Float[] | Float>;
+  latitude_lt?: Maybe<Float>;
+  latitude_lte?: Maybe<Float>;
+  latitude_gt?: Maybe<Float>;
+  latitude_gte?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  longitude_not?: Maybe<Float>;
+  longitude_in?: Maybe<Float[] | Float>;
+  longitude_not_in?: Maybe<Float[] | Float>;
+  longitude_lt?: Maybe<Float>;
+  longitude_lte?: Maybe<Float>;
+  longitude_gt?: Maybe<Float>;
+  longitude_gte?: Maybe<Float>;
+  comment?: Maybe<String>;
+  comment_not?: Maybe<String>;
+  comment_in?: Maybe<String[] | String>;
+  comment_not_in?: Maybe<String[] | String>;
+  comment_lt?: Maybe<String>;
+  comment_lte?: Maybe<String>;
+  comment_gt?: Maybe<String>;
+  comment_gte?: Maybe<String>;
+  comment_contains?: Maybe<String>;
+  comment_not_contains?: Maybe<String>;
+  comment_starts_with?: Maybe<String>;
+  comment_not_starts_with?: Maybe<String>;
+  comment_ends_with?: Maybe<String>;
+  comment_not_ends_with?: Maybe<String>;
+  state?: Maybe<String>;
+  state_not?: Maybe<String>;
+  state_in?: Maybe<String[] | String>;
+  state_not_in?: Maybe<String[] | String>;
+  state_lt?: Maybe<String>;
+  state_lte?: Maybe<String>;
+  state_gt?: Maybe<String>;
+  state_gte?: Maybe<String>;
+  state_contains?: Maybe<String>;
+  state_not_contains?: Maybe<String>;
+  state_starts_with?: Maybe<String>;
+  state_not_starts_with?: Maybe<String>;
+  state_ends_with?: Maybe<String>;
+  state_not_ends_with?: Maybe<String>;
+  AND?: Maybe<IncidenceScalarWhereInput[] | IncidenceScalarWhereInput>;
+  OR?: Maybe<IncidenceScalarWhereInput[] | IncidenceScalarWhereInput>;
+  NOT?: Maybe<IncidenceScalarWhereInput[] | IncidenceScalarWhereInput>;
+}
+
+export type IncidenceWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface IncidenceUpdateManyWithWhereNestedInput {
+  where: IncidenceScalarWhereInput;
+  data: IncidenceUpdateManyDataInput;
+}
+
+export interface EstablishmentUpsertWithWhereUniqueWithoutEsttypeInput {
+  where: EstablishmentWhereUniqueInput;
+  update: EstablishmentUpdateWithoutEsttypeDataInput;
+  create: EstablishmentCreateWithoutEsttypeInput;
+}
+
+export interface AssessmentUpdateWithWhereUniqueWithoutEstablishmentInput {
+  where: AssessmentWhereUniqueInput;
+  data: AssessmentUpdateWithoutEstablishmentDataInput;
+}
+
+export type IncidenceTypeWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface UserUpsertWithoutAssessmentsInput {
+  update: UserUpdateWithoutAssessmentsDataInput;
+  create: UserCreateWithoutAssessmentsInput;
+}
+
+export interface EstablishmentUpdateManyWithoutEsttypeInput {
+  create?: Maybe<
+    | EstablishmentCreateWithoutEsttypeInput[]
+    | EstablishmentCreateWithoutEsttypeInput
+  >;
+  delete?: Maybe<
+    EstablishmentWhereUniqueInput[] | EstablishmentWhereUniqueInput
+  >;
+  connect?: Maybe<
+    EstablishmentWhereUniqueInput[] | EstablishmentWhereUniqueInput
+  >;
+  set?: Maybe<EstablishmentWhereUniqueInput[] | EstablishmentWhereUniqueInput>;
+  disconnect?: Maybe<
+    EstablishmentWhereUniqueInput[] | EstablishmentWhereUniqueInput
+  >;
+  update?: Maybe<
+    | EstablishmentUpdateWithWhereUniqueWithoutEsttypeInput[]
+    | EstablishmentUpdateWithWhereUniqueWithoutEsttypeInput
+  >;
+  upsert?: Maybe<
+    | EstablishmentUpsertWithWhereUniqueWithoutEsttypeInput[]
+    | EstablishmentUpsertWithWhereUniqueWithoutEsttypeInput
+  >;
+  deleteMany?: Maybe<
+    EstablishmentScalarWhereInput[] | EstablishmentScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | EstablishmentUpdateManyWithWhereNestedInput[]
+    | EstablishmentUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface EstablishmentUpdateOneRequiredWithoutAssessmentsInput {
+  create?: Maybe<EstablishmentCreateWithoutAssessmentsInput>;
+  update?: Maybe<EstablishmentUpdateWithoutAssessmentsDataInput>;
+  upsert?: Maybe<EstablishmentUpsertWithoutAssessmentsInput>;
+  connect?: Maybe<EstablishmentWhereUniqueInput>;
+}
+
+export type StreetWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface EstablishmentUpdateWithoutAssessmentsDataInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  user?: Maybe<UserUpdateOneRequiredInput>;
+  street?: Maybe<StreetUpdateOneRequiredInput>;
+  Esttype?: Maybe<EstablishmentTypeUpdateOneRequiredWithoutEstablishmentInput>;
+}
+
+export interface EstablishmentCreateManyWithoutEsttypeInput {
+  create?: Maybe<
+    | EstablishmentCreateWithoutEsttypeInput[]
+    | EstablishmentCreateWithoutEsttypeInput
+  >;
+  connect?: Maybe<
+    EstablishmentWhereUniqueInput[] | EstablishmentWhereUniqueInput
+  >;
+}
+
+export interface UserUpdateOneRequiredInput {
+  create?: Maybe<UserCreateInput>;
+  update?: Maybe<UserUpdateDataInput>;
+  upsert?: Maybe<UserUpsertNestedInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  email?: Maybe<String>;
+}>;
+
+export interface UserUpdateDataInput {
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  role?: Maybe<Role>;
+  difficulties?: Maybe<DifficultyUpdateManyWithoutUsersInput>;
+  assessments?: Maybe<AssessmentUpdateManyWithoutUserInput>;
+  incidences?: Maybe<IncidenceUpdateManyWithoutUserInput>;
+}
+
+export interface AssessmentUpsertWithWhereUniqueWithoutEstablishmentInput {
+  where: AssessmentWhereUniqueInput;
+  update: AssessmentUpdateWithoutEstablishmentDataInput;
+  create: AssessmentCreateWithoutEstablishmentInput;
+}
+
+export interface AssessmentUpdateManyWithoutUserInput {
+  create?: Maybe<
+    AssessmentCreateWithoutUserInput[] | AssessmentCreateWithoutUserInput
+  >;
+  delete?: Maybe<AssessmentWhereUniqueInput[] | AssessmentWhereUniqueInput>;
+  connect?: Maybe<AssessmentWhereUniqueInput[] | AssessmentWhereUniqueInput>;
+  set?: Maybe<AssessmentWhereUniqueInput[] | AssessmentWhereUniqueInput>;
+  disconnect?: Maybe<AssessmentWhereUniqueInput[] | AssessmentWhereUniqueInput>;
+  update?: Maybe<
+    | AssessmentUpdateWithWhereUniqueWithoutUserInput[]
+    | AssessmentUpdateWithWhereUniqueWithoutUserInput
+  >;
+  upsert?: Maybe<
+    | AssessmentUpsertWithWhereUniqueWithoutUserInput[]
+    | AssessmentUpsertWithWhereUniqueWithoutUserInput
+  >;
+  deleteMany?: Maybe<AssessmentScalarWhereInput[] | AssessmentScalarWhereInput>;
+  updateMany?: Maybe<
+    | AssessmentUpdateManyWithWhereNestedInput[]
+    | AssessmentUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface UserCreateOneWithoutAssessmentsInput {
+  create?: Maybe<UserCreateWithoutAssessmentsInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface IncidenceTypeWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  category?: Maybe<CategoryWhereInput>;
+  incidences_every?: Maybe<IncidenceWhereInput>;
+  incidences_some?: Maybe<IncidenceWhereInput>;
+  incidences_none?: Maybe<IncidenceWhereInput>;
+  AND?: Maybe<IncidenceTypeWhereInput[] | IncidenceTypeWhereInput>;
+  OR?: Maybe<IncidenceTypeWhereInput[] | IncidenceTypeWhereInput>;
+  NOT?: Maybe<IncidenceTypeWhereInput[] | IncidenceTypeWhereInput>;
+}
+
+export interface DifficultyCreateManyWithoutUsersInput {
+  create?: Maybe<
+    DifficultyCreateWithoutUsersInput[] | DifficultyCreateWithoutUsersInput
+  >;
+  connect?: Maybe<DifficultyWhereUniqueInput[] | DifficultyWhereUniqueInput>;
+}
+
+export interface EstablishmentTypeWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  establishment_every?: Maybe<EstablishmentWhereInput>;
+  establishment_some?: Maybe<EstablishmentWhereInput>;
+  establishment_none?: Maybe<EstablishmentWhereInput>;
+  AND?: Maybe<EstablishmentTypeWhereInput[] | EstablishmentTypeWhereInput>;
+  OR?: Maybe<EstablishmentTypeWhereInput[] | EstablishmentTypeWhereInput>;
+  NOT?: Maybe<EstablishmentTypeWhereInput[] | EstablishmentTypeWhereInput>;
+}
+
+export interface IncidenceCreateManyWithoutUserInput {
+  create?: Maybe<
+    IncidenceCreateWithoutUserInput[] | IncidenceCreateWithoutUserInput
+  >;
+  connect?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+}
+
+export interface AssessmentUpdateManyWithoutEstablishmentInput {
+  create?: Maybe<
+    | AssessmentCreateWithoutEstablishmentInput[]
+    | AssessmentCreateWithoutEstablishmentInput
+  >;
+  delete?: Maybe<AssessmentWhereUniqueInput[] | AssessmentWhereUniqueInput>;
+  connect?: Maybe<AssessmentWhereUniqueInput[] | AssessmentWhereUniqueInput>;
+  set?: Maybe<AssessmentWhereUniqueInput[] | AssessmentWhereUniqueInput>;
+  disconnect?: Maybe<AssessmentWhereUniqueInput[] | AssessmentWhereUniqueInput>;
+  update?: Maybe<
+    | AssessmentUpdateWithWhereUniqueWithoutEstablishmentInput[]
+    | AssessmentUpdateWithWhereUniqueWithoutEstablishmentInput
+  >;
+  upsert?: Maybe<
+    | AssessmentUpsertWithWhereUniqueWithoutEstablishmentInput[]
+    | AssessmentUpsertWithWhereUniqueWithoutEstablishmentInput
+  >;
+  deleteMany?: Maybe<AssessmentScalarWhereInput[] | AssessmentScalarWhereInput>;
+  updateMany?: Maybe<
+    | AssessmentUpdateManyWithWhereNestedInput[]
+    | AssessmentUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface StreetCreateOneWithoutIncidencesInput {
+  create?: Maybe<StreetCreateWithoutIncidencesInput>;
+  connect?: Maybe<StreetWhereUniqueInput>;
+}
+
+export interface StreetWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  city?: Maybe<CityWhereInput>;
+  incidences_every?: Maybe<IncidenceWhereInput>;
+  incidences_some?: Maybe<IncidenceWhereInput>;
+  incidences_none?: Maybe<IncidenceWhereInput>;
+  AND?: Maybe<StreetWhereInput[] | StreetWhereInput>;
+  OR?: Maybe<StreetWhereInput[] | StreetWhereInput>;
+  NOT?: Maybe<StreetWhereInput[] | StreetWhereInput>;
+}
+
+export interface CityCreateOneWithoutStreetsInput {
+  create?: Maybe<CityCreateWithoutStreetsInput>;
+  connect?: Maybe<CityWhereUniqueInput>;
+}
+
+export interface EstablishmentUpdateInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  user?: Maybe<UserUpdateOneRequiredInput>;
+  street?: Maybe<StreetUpdateOneRequiredInput>;
+  Esttype?: Maybe<EstablishmentTypeUpdateOneRequiredWithoutEstablishmentInput>;
+  assessments?: Maybe<AssessmentUpdateManyWithoutEstablishmentInput>;
+}
+
+export interface GravityCreateOneWithoutIncidencesInput {
+  create?: Maybe<GravityCreateWithoutIncidencesInput>;
+  connect?: Maybe<GravityWhereUniqueInput>;
+}
+
+export interface AssessmentUpdateManyDataInput {
+  score?: Maybe<Int>;
+  description?: Maybe<String>;
+}
+
+export interface IncidenceTypeCreateOneWithoutIncidencesInput {
+  create?: Maybe<IncidenceTypeCreateWithoutIncidencesInput>;
+  connect?: Maybe<IncidenceTypeWhereUniqueInput>;
+}
+
+export interface UserUpsertNestedInput {
+  update: UserUpdateDataInput;
+  create: UserCreateInput;
+}
+
+export interface CategoryCreateOneWithoutInctypesInput {
+  create?: Maybe<CategoryCreateWithoutInctypesInput>;
+  connect?: Maybe<CategoryWhereUniqueInput>;
+}
+
+export interface StreetUpdateOneRequiredInput {
+  create?: Maybe<StreetCreateInput>;
+  update?: Maybe<StreetUpdateDataInput>;
+  upsert?: Maybe<StreetUpsertNestedInput>;
+  connect?: Maybe<StreetWhereUniqueInput>;
+}
+
+export interface EstablishmentCreateOneWithoutAssessmentsInput {
+  create?: Maybe<EstablishmentCreateWithoutAssessmentsInput>;
+  connect?: Maybe<EstablishmentWhereUniqueInput>;
+}
+
+export interface StreetUpdateDataInput {
+  name?: Maybe<String>;
+  city?: Maybe<CityUpdateOneRequiredWithoutStreetsInput>;
+  incidences?: Maybe<IncidenceUpdateManyWithoutStreetInput>;
+}
+
+export interface UserCreateOneInput {
+  create?: Maybe<UserCreateInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface IncidenceUpdateManyWithoutStreetInput {
+  create?: Maybe<
+    IncidenceCreateWithoutStreetInput[] | IncidenceCreateWithoutStreetInput
+  >;
+  delete?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  connect?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  set?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  disconnect?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  update?: Maybe<
+    | IncidenceUpdateWithWhereUniqueWithoutStreetInput[]
+    | IncidenceUpdateWithWhereUniqueWithoutStreetInput
+  >;
+  upsert?: Maybe<
+    | IncidenceUpsertWithWhereUniqueWithoutStreetInput[]
+    | IncidenceUpsertWithWhereUniqueWithoutStreetInput
+  >;
+  deleteMany?: Maybe<IncidenceScalarWhereInput[] | IncidenceScalarWhereInput>;
+  updateMany?: Maybe<
+    | IncidenceUpdateManyWithWhereNestedInput[]
+    | IncidenceUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface AssessmentCreateManyWithoutUserInput {
+  create?: Maybe<
+    AssessmentCreateWithoutUserInput[] | AssessmentCreateWithoutUserInput
+  >;
+  connect?: Maybe<AssessmentWhereUniqueInput[] | AssessmentWhereUniqueInput>;
+}
+
+export interface IncidenceUpdateWithWhereUniqueWithoutStreetInput {
+  where: IncidenceWhereUniqueInput;
+  data: IncidenceUpdateWithoutStreetDataInput;
+}
+
+export interface StreetCreateOneInput {
+  create?: Maybe<StreetCreateInput>;
+  connect?: Maybe<StreetWhereUniqueInput>;
+}
+
+export interface IncidenceUpdateWithoutStreetDataInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  comment?: Maybe<String>;
+  state?: Maybe<String>;
+  user?: Maybe<UserUpdateOneRequiredWithoutIncidencesInput>;
+  gravity?: Maybe<GravityUpdateOneRequiredWithoutIncidencesInput>;
+  typeinc?: Maybe<IncidenceTypeUpdateOneRequiredWithoutIncidencesInput>;
+}
+
+export interface IncidenceCreateManyWithoutStreetInput {
+  create?: Maybe<
+    IncidenceCreateWithoutStreetInput[] | IncidenceCreateWithoutStreetInput
+  >;
+  connect?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+}
+
+export interface UserUpdateOneRequiredWithoutIncidencesInput {
+  create?: Maybe<UserCreateWithoutIncidencesInput>;
+  update?: Maybe<UserUpdateWithoutIncidencesDataInput>;
+  upsert?: Maybe<UserUpsertWithoutIncidencesInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserCreateOneWithoutIncidencesInput {
+  create?: Maybe<UserCreateWithoutIncidencesInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserUpdateWithoutIncidencesDataInput {
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  role?: Maybe<Role>;
+  difficulties?: Maybe<DifficultyUpdateManyWithoutUsersInput>;
+  assessments?: Maybe<AssessmentUpdateManyWithoutUserInput>;
+}
+
+export interface EstablishmentTypeCreateOneWithoutEstablishmentInput {
+  create?: Maybe<EstablishmentTypeCreateWithoutEstablishmentInput>;
+  connect?: Maybe<EstablishmentTypeWhereUniqueInput>;
+}
+
+export interface UserUpsertWithoutIncidencesInput {
+  update: UserUpdateWithoutIncidencesDataInput;
+  create: UserCreateWithoutIncidencesInput;
+}
+
+export interface AssessmentUpdateInput {
+  score?: Maybe<Int>;
+  description?: Maybe<String>;
+  user?: Maybe<UserUpdateOneRequiredWithoutAssessmentsInput>;
+  establishment?: Maybe<EstablishmentUpdateOneRequiredWithoutAssessmentsInput>;
+}
+
+export interface IncidenceUpsertWithWhereUniqueWithoutStreetInput {
+  where: IncidenceWhereUniqueInput;
+  update: IncidenceUpdateWithoutStreetDataInput;
+  create: IncidenceCreateWithoutStreetInput;
+}
+
+export interface UserUpdateWithoutAssessmentsDataInput {
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  role?: Maybe<Role>;
+  difficulties?: Maybe<DifficultyUpdateManyWithoutUsersInput>;
+  incidences?: Maybe<IncidenceUpdateManyWithoutUserInput>;
+}
+
+export interface StreetUpsertNestedInput {
+  update: StreetUpdateDataInput;
+  create: StreetCreateInput;
+}
+
+export interface DifficultyUpdateWithWhereUniqueWithoutUsersInput {
+  where: DifficultyWhereUniqueInput;
+  data: DifficultyUpdateWithoutUsersDataInput;
+}
+
+export interface EstablishmentTypeUpdateOneRequiredWithoutEstablishmentInput {
+  create?: Maybe<EstablishmentTypeCreateWithoutEstablishmentInput>;
+  update?: Maybe<EstablishmentTypeUpdateWithoutEstablishmentDataInput>;
+  upsert?: Maybe<EstablishmentTypeUpsertWithoutEstablishmentInput>;
+  connect?: Maybe<EstablishmentTypeWhereUniqueInput>;
 }
 
 export interface UserSubscriptionWhereInput {
@@ -197,46 +1840,1052 @@ export interface UserSubscriptionWhereInput {
   NOT?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
 }
 
-export type UserWhereUniqueInput = AtLeastOne<{
+export interface EstablishmentTypeUpdateWithoutEstablishmentDataInput {
+  name?: Maybe<String>;
+}
+
+export interface IncidenceSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<IncidenceWhereInput>;
+  AND?: Maybe<
+    IncidenceSubscriptionWhereInput[] | IncidenceSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    IncidenceSubscriptionWhereInput[] | IncidenceSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    IncidenceSubscriptionWhereInput[] | IncidenceSubscriptionWhereInput
+  >;
+}
+
+export interface EstablishmentTypeUpsertWithoutEstablishmentInput {
+  update: EstablishmentTypeUpdateWithoutEstablishmentDataInput;
+  create: EstablishmentTypeCreateWithoutEstablishmentInput;
+}
+
+export interface EstablishmentSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<EstablishmentWhereInput>;
+  AND?: Maybe<
+    EstablishmentSubscriptionWhereInput[] | EstablishmentSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    EstablishmentSubscriptionWhereInput[] | EstablishmentSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    EstablishmentSubscriptionWhereInput[] | EstablishmentSubscriptionWhereInput
+  >;
+}
+
+export interface EstablishmentUpsertWithoutAssessmentsInput {
+  update: EstablishmentUpdateWithoutAssessmentsDataInput;
+  create: EstablishmentCreateWithoutAssessmentsInput;
+}
+
+export interface CategorySubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<CategoryWhereInput>;
+  AND?: Maybe<
+    CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput
+  >;
+  OR?: Maybe<CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput>;
+  NOT?: Maybe<
+    CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput
+  >;
+}
+
+export interface AssessmentUpdateManyMutationInput {
+  score?: Maybe<Int>;
+  description?: Maybe<String>;
+}
+
+export interface DifficultyWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  users_every?: Maybe<UserWhereInput>;
+  users_some?: Maybe<UserWhereInput>;
+  users_none?: Maybe<UserWhereInput>;
+  AND?: Maybe<DifficultyWhereInput[] | DifficultyWhereInput>;
+  OR?: Maybe<DifficultyWhereInput[] | DifficultyWhereInput>;
+  NOT?: Maybe<DifficultyWhereInput[] | DifficultyWhereInput>;
+}
+
+export interface AssessmentCreateWithoutEstablishmentInput {
+  id?: Maybe<ID_Input>;
+  score: Int;
+  description?: Maybe<String>;
+  user: UserCreateOneWithoutAssessmentsInput;
+}
+
+export type CityWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
-  email?: Maybe<String>;
 }>;
+
+export interface AssessmentCreateManyWithoutEstablishmentInput {
+  create?: Maybe<
+    | AssessmentCreateWithoutEstablishmentInput[]
+    | AssessmentCreateWithoutEstablishmentInput
+  >;
+  connect?: Maybe<AssessmentWhereUniqueInput[] | AssessmentWhereUniqueInput>;
+}
+
+export interface IncidenceUpdateManyMutationInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  comment?: Maybe<String>;
+  state?: Maybe<String>;
+}
+
+export interface CategoryCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  inctypes?: Maybe<IncidenceTypeCreateManyWithoutCategoryInput>;
+}
+
+export interface GravityUpdateManyMutationInput {
+  name?: Maybe<String>;
+}
+
+export interface IncidenceTypeCreateManyWithoutCategoryInput {
+  create?: Maybe<
+    | IncidenceTypeCreateWithoutCategoryInput[]
+    | IncidenceTypeCreateWithoutCategoryInput
+  >;
+  connect?: Maybe<
+    IncidenceTypeWhereUniqueInput[] | IncidenceTypeWhereUniqueInput
+  >;
+}
+
+export interface IncidenceUpdateWithWhereUniqueWithoutGravityInput {
+  where: IncidenceWhereUniqueInput;
+  data: IncidenceUpdateWithoutGravityDataInput;
+}
+
+export interface IncidenceTypeCreateWithoutCategoryInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  incidences?: Maybe<IncidenceCreateManyWithoutTypeincInput>;
+}
+
+export interface IncidenceCreateWithoutGravityInput {
+  id?: Maybe<ID_Input>;
+  latitude: Float;
+  longitude: Float;
+  comment: String;
+  state: String;
+  street: StreetCreateOneWithoutIncidencesInput;
+  user: UserCreateOneWithoutIncidencesInput;
+  typeinc: IncidenceTypeCreateOneWithoutIncidencesInput;
+}
+
+export interface IncidenceCreateManyWithoutTypeincInput {
+  create?: Maybe<
+    IncidenceCreateWithoutTypeincInput[] | IncidenceCreateWithoutTypeincInput
+  >;
+  connect?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+}
+
+export interface EstablishmentTypeUpdateManyMutationInput {
+  name?: Maybe<String>;
+}
+
+export interface IncidenceCreateWithoutTypeincInput {
+  id?: Maybe<ID_Input>;
+  latitude: Float;
+  longitude: Float;
+  comment: String;
+  state: String;
+  street: StreetCreateOneWithoutIncidencesInput;
+  user: UserCreateOneWithoutIncidencesInput;
+  gravity: GravityCreateOneWithoutIncidencesInput;
+}
+
+export interface EstablishmentScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  latitude?: Maybe<Float>;
+  latitude_not?: Maybe<Float>;
+  latitude_in?: Maybe<Float[] | Float>;
+  latitude_not_in?: Maybe<Float[] | Float>;
+  latitude_lt?: Maybe<Float>;
+  latitude_lte?: Maybe<Float>;
+  latitude_gt?: Maybe<Float>;
+  latitude_gte?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  longitude_not?: Maybe<Float>;
+  longitude_in?: Maybe<Float[] | Float>;
+  longitude_not_in?: Maybe<Float[] | Float>;
+  longitude_lt?: Maybe<Float>;
+  longitude_lte?: Maybe<Float>;
+  longitude_gt?: Maybe<Float>;
+  longitude_gte?: Maybe<Float>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  AND?: Maybe<EstablishmentScalarWhereInput[] | EstablishmentScalarWhereInput>;
+  OR?: Maybe<EstablishmentScalarWhereInput[] | EstablishmentScalarWhereInput>;
+  NOT?: Maybe<EstablishmentScalarWhereInput[] | EstablishmentScalarWhereInput>;
+}
+
+export interface CategoryUpdateInput {
+  name?: Maybe<String>;
+  inctypes?: Maybe<IncidenceTypeUpdateManyWithoutCategoryInput>;
+}
+
+export interface EstablishmentUpdateWithWhereUniqueWithoutEsttypeInput {
+  where: EstablishmentWhereUniqueInput;
+  data: EstablishmentUpdateWithoutEsttypeDataInput;
+}
+
+export interface IncidenceTypeUpdateManyWithoutCategoryInput {
+  create?: Maybe<
+    | IncidenceTypeCreateWithoutCategoryInput[]
+    | IncidenceTypeCreateWithoutCategoryInput
+  >;
+  delete?: Maybe<
+    IncidenceTypeWhereUniqueInput[] | IncidenceTypeWhereUniqueInput
+  >;
+  connect?: Maybe<
+    IncidenceTypeWhereUniqueInput[] | IncidenceTypeWhereUniqueInput
+  >;
+  set?: Maybe<IncidenceTypeWhereUniqueInput[] | IncidenceTypeWhereUniqueInput>;
+  disconnect?: Maybe<
+    IncidenceTypeWhereUniqueInput[] | IncidenceTypeWhereUniqueInput
+  >;
+  update?: Maybe<
+    | IncidenceTypeUpdateWithWhereUniqueWithoutCategoryInput[]
+    | IncidenceTypeUpdateWithWhereUniqueWithoutCategoryInput
+  >;
+  upsert?: Maybe<
+    | IncidenceTypeUpsertWithWhereUniqueWithoutCategoryInput[]
+    | IncidenceTypeUpsertWithWhereUniqueWithoutCategoryInput
+  >;
+  deleteMany?: Maybe<
+    IncidenceTypeScalarWhereInput[] | IncidenceTypeScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | IncidenceTypeUpdateManyWithWhereNestedInput[]
+    | IncidenceTypeUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface EstablishmentCreateWithoutEsttypeInput {
+  id?: Maybe<ID_Input>;
+  latitude: Float;
+  longitude: Float;
+  name: String;
+  description?: Maybe<String>;
+  user: UserCreateOneInput;
+  street: StreetCreateOneInput;
+  assessments?: Maybe<AssessmentCreateManyWithoutEstablishmentInput>;
+}
+
+export interface IncidenceTypeUpdateWithWhereUniqueWithoutCategoryInput {
+  where: IncidenceTypeWhereUniqueInput;
+  data: IncidenceTypeUpdateWithoutCategoryDataInput;
+}
+
+export interface EstablishmentUpdateManyMutationInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface IncidenceTypeUpdateWithoutCategoryDataInput {
+  name?: Maybe<String>;
+  incidences?: Maybe<IncidenceUpdateManyWithoutTypeincInput>;
+}
+
+export interface AssessmentCreateInput {
+  id?: Maybe<ID_Input>;
+  score: Int;
+  description?: Maybe<String>;
+  user: UserCreateOneWithoutAssessmentsInput;
+  establishment: EstablishmentCreateOneWithoutAssessmentsInput;
+}
+
+export interface IncidenceUpdateManyWithoutTypeincInput {
+  create?: Maybe<
+    IncidenceCreateWithoutTypeincInput[] | IncidenceCreateWithoutTypeincInput
+  >;
+  delete?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  connect?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  set?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  disconnect?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  update?: Maybe<
+    | IncidenceUpdateWithWhereUniqueWithoutTypeincInput[]
+    | IncidenceUpdateWithWhereUniqueWithoutTypeincInput
+  >;
+  upsert?: Maybe<
+    | IncidenceUpsertWithWhereUniqueWithoutTypeincInput[]
+    | IncidenceUpsertWithWhereUniqueWithoutTypeincInput
+  >;
+  deleteMany?: Maybe<IncidenceScalarWhereInput[] | IncidenceScalarWhereInput>;
+  updateMany?: Maybe<
+    | IncidenceUpdateManyWithWhereNestedInput[]
+    | IncidenceUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface DifficultyCreateWithoutUsersInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+}
+
+export interface IncidenceUpdateWithWhereUniqueWithoutTypeincInput {
+  where: IncidenceWhereUniqueInput;
+  data: IncidenceUpdateWithoutTypeincDataInput;
+}
+
+export interface StreetCreateWithoutIncidencesInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  city: CityCreateOneWithoutStreetsInput;
+}
+
+export interface IncidenceUpdateWithoutTypeincDataInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  comment?: Maybe<String>;
+  state?: Maybe<String>;
+  street?: Maybe<StreetUpdateOneRequiredWithoutIncidencesInput>;
+  user?: Maybe<UserUpdateOneRequiredWithoutIncidencesInput>;
+  gravity?: Maybe<GravityUpdateOneRequiredWithoutIncidencesInput>;
+}
+
+export interface GravityCreateWithoutIncidencesInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+}
+
+export interface IncidenceUpsertWithWhereUniqueWithoutTypeincInput {
+  where: IncidenceWhereUniqueInput;
+  update: IncidenceUpdateWithoutTypeincDataInput;
+  create: IncidenceCreateWithoutTypeincInput;
+}
+
+export interface CategoryCreateWithoutInctypesInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+}
+
+export interface IncidenceTypeUpsertWithWhereUniqueWithoutCategoryInput {
+  where: IncidenceTypeWhereUniqueInput;
+  update: IncidenceTypeUpdateWithoutCategoryDataInput;
+  create: IncidenceTypeCreateWithoutCategoryInput;
+}
+
+export interface UserCreateInput {
+  id?: Maybe<ID_Input>;
+  email: String;
+  password: String;
+  role?: Maybe<Role>;
+  difficulties?: Maybe<DifficultyCreateManyWithoutUsersInput>;
+  assessments?: Maybe<AssessmentCreateManyWithoutUserInput>;
+  incidences?: Maybe<IncidenceCreateManyWithoutUserInput>;
+}
+
+export interface IncidenceTypeScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  AND?: Maybe<IncidenceTypeScalarWhereInput[] | IncidenceTypeScalarWhereInput>;
+  OR?: Maybe<IncidenceTypeScalarWhereInput[] | IncidenceTypeScalarWhereInput>;
+  NOT?: Maybe<IncidenceTypeScalarWhereInput[] | IncidenceTypeScalarWhereInput>;
+}
+
+export interface StreetCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  city: CityCreateOneWithoutStreetsInput;
+  incidences?: Maybe<IncidenceCreateManyWithoutStreetInput>;
+}
+
+export interface IncidenceTypeUpdateManyWithWhereNestedInput {
+  where: IncidenceTypeScalarWhereInput;
+  data: IncidenceTypeUpdateManyDataInput;
+}
+
+export interface UserCreateWithoutIncidencesInput {
+  id?: Maybe<ID_Input>;
+  email: String;
+  password: String;
+  role?: Maybe<Role>;
+  difficulties?: Maybe<DifficultyCreateManyWithoutUsersInput>;
+  assessments?: Maybe<AssessmentCreateManyWithoutUserInput>;
+}
+
+export interface IncidenceTypeUpdateManyDataInput {
+  name?: Maybe<String>;
+}
+
+export interface UserUpdateOneRequiredWithoutAssessmentsInput {
+  create?: Maybe<UserCreateWithoutAssessmentsInput>;
+  update?: Maybe<UserUpdateWithoutAssessmentsDataInput>;
+  upsert?: Maybe<UserUpsertWithoutAssessmentsInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface CategoryUpdateManyMutationInput {
+  name?: Maybe<String>;
+}
+
+export interface DifficultyUpdateWithoutUsersDataInput {
+  name?: Maybe<String>;
+}
+
+export interface CityCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  streets?: Maybe<StreetCreateManyWithoutCityInput>;
+}
+
+export interface AssessmentWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  score?: Maybe<Int>;
+  score_not?: Maybe<Int>;
+  score_in?: Maybe<Int[] | Int>;
+  score_not_in?: Maybe<Int[] | Int>;
+  score_lt?: Maybe<Int>;
+  score_lte?: Maybe<Int>;
+  score_gt?: Maybe<Int>;
+  score_gte?: Maybe<Int>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  user?: Maybe<UserWhereInput>;
+  establishment?: Maybe<EstablishmentWhereInput>;
+  AND?: Maybe<AssessmentWhereInput[] | AssessmentWhereInput>;
+  OR?: Maybe<AssessmentWhereInput[] | AssessmentWhereInput>;
+  NOT?: Maybe<AssessmentWhereInput[] | AssessmentWhereInput>;
+}
+
+export interface StreetCreateManyWithoutCityInput {
+  create?: Maybe<StreetCreateWithoutCityInput[] | StreetCreateWithoutCityInput>;
+  connect?: Maybe<StreetWhereUniqueInput[] | StreetWhereUniqueInput>;
+}
+
+export interface UserUpdateManyMutationInput {
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  role?: Maybe<Role>;
+}
+
+export interface StreetCreateWithoutCityInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  incidences?: Maybe<IncidenceCreateManyWithoutStreetInput>;
+}
+
+export interface IncidenceTypeUpdateInput {
+  name?: Maybe<String>;
+  category?: Maybe<CategoryUpdateOneRequiredWithoutInctypesInput>;
+  incidences?: Maybe<IncidenceUpdateManyWithoutTypeincInput>;
+}
+
+export interface CityUpdateInput {
+  name?: Maybe<String>;
+  streets?: Maybe<StreetUpdateManyWithoutCityInput>;
+}
+
+export interface IncidenceUpsertWithWhereUniqueWithoutGravityInput {
+  where: IncidenceWhereUniqueInput;
+  update: IncidenceUpdateWithoutGravityDataInput;
+  create: IncidenceCreateWithoutGravityInput;
+}
+
+export interface StreetUpdateManyWithoutCityInput {
+  create?: Maybe<StreetCreateWithoutCityInput[] | StreetCreateWithoutCityInput>;
+  delete?: Maybe<StreetWhereUniqueInput[] | StreetWhereUniqueInput>;
+  connect?: Maybe<StreetWhereUniqueInput[] | StreetWhereUniqueInput>;
+  set?: Maybe<StreetWhereUniqueInput[] | StreetWhereUniqueInput>;
+  disconnect?: Maybe<StreetWhereUniqueInput[] | StreetWhereUniqueInput>;
+  update?: Maybe<
+    | StreetUpdateWithWhereUniqueWithoutCityInput[]
+    | StreetUpdateWithWhereUniqueWithoutCityInput
+  >;
+  upsert?: Maybe<
+    | StreetUpsertWithWhereUniqueWithoutCityInput[]
+    | StreetUpsertWithWhereUniqueWithoutCityInput
+  >;
+  deleteMany?: Maybe<StreetScalarWhereInput[] | StreetScalarWhereInput>;
+  updateMany?: Maybe<
+    | StreetUpdateManyWithWhereNestedInput[]
+    | StreetUpdateManyWithWhereNestedInput
+  >;
+}
+
+export type GravityWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface StreetUpdateWithWhereUniqueWithoutCityInput {
+  where: StreetWhereUniqueInput;
+  data: StreetUpdateWithoutCityDataInput;
+}
+
+export interface EstablishmentUpdateWithoutEsttypeDataInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  user?: Maybe<UserUpdateOneRequiredInput>;
+  street?: Maybe<StreetUpdateOneRequiredInput>;
+  assessments?: Maybe<AssessmentUpdateManyWithoutEstablishmentInput>;
+}
+
+export interface StreetUpdateWithoutCityDataInput {
+  name?: Maybe<String>;
+  incidences?: Maybe<IncidenceUpdateManyWithoutStreetInput>;
+}
+
+export interface EstablishmentTypeCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  establishment?: Maybe<EstablishmentCreateManyWithoutEsttypeInput>;
+}
+
+export interface StreetUpsertWithWhereUniqueWithoutCityInput {
+  where: StreetWhereUniqueInput;
+  update: StreetUpdateWithoutCityDataInput;
+  create: StreetCreateWithoutCityInput;
+}
+
+export interface UserCreateWithoutAssessmentsInput {
+  id?: Maybe<ID_Input>;
+  email: String;
+  password: String;
+  role?: Maybe<Role>;
+  difficulties?: Maybe<DifficultyCreateManyWithoutUsersInput>;
+  incidences?: Maybe<IncidenceCreateManyWithoutUserInput>;
+}
+
+export interface StreetScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  AND?: Maybe<StreetScalarWhereInput[] | StreetScalarWhereInput>;
+  OR?: Maybe<StreetScalarWhereInput[] | StreetScalarWhereInput>;
+  NOT?: Maybe<StreetScalarWhereInput[] | StreetScalarWhereInput>;
+}
+
+export interface CityCreateWithoutStreetsInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+}
+
+export interface StreetUpdateManyWithWhereNestedInput {
+  where: StreetScalarWhereInput;
+  data: StreetUpdateManyDataInput;
+}
+
+export interface EstablishmentCreateWithoutAssessmentsInput {
+  id?: Maybe<ID_Input>;
+  latitude: Float;
+  longitude: Float;
+  name: String;
+  description?: Maybe<String>;
+  user: UserCreateOneInput;
+  street: StreetCreateOneInput;
+  Esttype: EstablishmentTypeCreateOneWithoutEstablishmentInput;
+}
+
+export interface StreetUpdateManyDataInput {
+  name?: Maybe<String>;
+}
+
+export interface IncidenceCreateWithoutStreetInput {
+  id?: Maybe<ID_Input>;
+  latitude: Float;
+  longitude: Float;
+  comment: String;
+  state: String;
+  user: UserCreateOneWithoutIncidencesInput;
+  gravity: GravityCreateOneWithoutIncidencesInput;
+  typeinc: IncidenceTypeCreateOneWithoutIncidencesInput;
+}
+
+export interface CityUpdateManyMutationInput {
+  name?: Maybe<String>;
+}
+
+export interface DifficultyUpdateManyWithoutUsersInput {
+  create?: Maybe<
+    DifficultyCreateWithoutUsersInput[] | DifficultyCreateWithoutUsersInput
+  >;
+  delete?: Maybe<DifficultyWhereUniqueInput[] | DifficultyWhereUniqueInput>;
+  connect?: Maybe<DifficultyWhereUniqueInput[] | DifficultyWhereUniqueInput>;
+  set?: Maybe<DifficultyWhereUniqueInput[] | DifficultyWhereUniqueInput>;
+  disconnect?: Maybe<DifficultyWhereUniqueInput[] | DifficultyWhereUniqueInput>;
+  update?: Maybe<
+    | DifficultyUpdateWithWhereUniqueWithoutUsersInput[]
+    | DifficultyUpdateWithWhereUniqueWithoutUsersInput
+  >;
+  upsert?: Maybe<
+    | DifficultyUpsertWithWhereUniqueWithoutUsersInput[]
+    | DifficultyUpsertWithWhereUniqueWithoutUsersInput
+  >;
+  deleteMany?: Maybe<DifficultyScalarWhereInput[] | DifficultyScalarWhereInput>;
+  updateMany?: Maybe<
+    | DifficultyUpdateManyWithWhereNestedInput[]
+    | DifficultyUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface DifficultyCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  users?: Maybe<UserCreateManyWithoutDifficultiesInput>;
+}
+
+export interface DifficultySubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<DifficultyWhereInput>;
+  AND?: Maybe<
+    DifficultySubscriptionWhereInput[] | DifficultySubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    DifficultySubscriptionWhereInput[] | DifficultySubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    DifficultySubscriptionWhereInput[] | DifficultySubscriptionWhereInput
+  >;
+}
+
+export interface UserCreateManyWithoutDifficultiesInput {
+  create?: Maybe<
+    UserCreateWithoutDifficultiesInput[] | UserCreateWithoutDifficultiesInput
+  >;
+  connect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+}
+
+export interface IncidenceUpdateInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  comment?: Maybe<String>;
+  state?: Maybe<String>;
+  street?: Maybe<StreetUpdateOneRequiredWithoutIncidencesInput>;
+  user?: Maybe<UserUpdateOneRequiredWithoutIncidencesInput>;
+  gravity?: Maybe<GravityUpdateOneRequiredWithoutIncidencesInput>;
+  typeinc?: Maybe<IncidenceTypeUpdateOneRequiredWithoutIncidencesInput>;
+}
+
+export interface UserCreateWithoutDifficultiesInput {
+  id?: Maybe<ID_Input>;
+  email: String;
+  password: String;
+  role?: Maybe<Role>;
+  assessments?: Maybe<AssessmentCreateManyWithoutUserInput>;
+  incidences?: Maybe<IncidenceCreateManyWithoutUserInput>;
+}
+
+export interface EstablishmentUpdateManyWithWhereNestedInput {
+  where: EstablishmentScalarWhereInput;
+  data: EstablishmentUpdateManyDataInput;
+}
+
+export interface DifficultyUpdateInput {
+  name?: Maybe<String>;
+  users?: Maybe<UserUpdateManyWithoutDifficultiesInput>;
+}
+
+export interface AssessmentUpdateWithoutEstablishmentDataInput {
+  score?: Maybe<Int>;
+  description?: Maybe<String>;
+  user?: Maybe<UserUpdateOneRequiredWithoutAssessmentsInput>;
+}
+
+export interface UserUpdateManyWithoutDifficultiesInput {
+  create?: Maybe<
+    UserCreateWithoutDifficultiesInput[] | UserCreateWithoutDifficultiesInput
+  >;
+  delete?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  connect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  set?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  disconnect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  update?: Maybe<
+    | UserUpdateWithWhereUniqueWithoutDifficultiesInput[]
+    | UserUpdateWithWhereUniqueWithoutDifficultiesInput
+  >;
+  upsert?: Maybe<
+    | UserUpsertWithWhereUniqueWithoutDifficultiesInput[]
+    | UserUpsertWithWhereUniqueWithoutDifficultiesInput
+  >;
+  deleteMany?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
+  updateMany?: Maybe<
+    UserUpdateManyWithWhereNestedInput[] | UserUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface IncidenceTypeCreateWithoutIncidencesInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  category: CategoryCreateOneWithoutInctypesInput;
+}
+
+export interface UserUpdateWithWhereUniqueWithoutDifficultiesInput {
+  where: UserWhereUniqueInput;
+  data: UserUpdateWithoutDifficultiesDataInput;
+}
+
+export interface EstablishmentTypeCreateWithoutEstablishmentInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+}
+
+export interface UserUpdateWithoutDifficultiesDataInput {
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  role?: Maybe<Role>;
+  assessments?: Maybe<AssessmentUpdateManyWithoutUserInput>;
+  incidences?: Maybe<IncidenceUpdateManyWithoutUserInput>;
+}
+
+export interface StreetUpdateManyMutationInput {
+  name?: Maybe<String>;
+}
+
+export interface UserUpsertWithWhereUniqueWithoutDifficultiesInput {
+  where: UserWhereUniqueInput;
+  update: UserUpdateWithoutDifficultiesDataInput;
+  create: UserCreateWithoutDifficultiesInput;
+}
+
+export interface EstablishmentTypeUpdateInput {
+  name?: Maybe<String>;
+  establishment?: Maybe<EstablishmentUpdateManyWithoutEsttypeInput>;
+}
+
+export interface DifficultyUpdateManyMutationInput {
+  name?: Maybe<String>;
+}
+
+export interface UserUpdateManyDataInput {
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  role?: Maybe<Role>;
+}
+
+export interface UserUpdateManyWithWhereNestedInput {
+  where: UserScalarWhereInput;
+  data: UserUpdateManyDataInput;
+}
+
+export interface UserScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  email?: Maybe<String>;
+  email_not?: Maybe<String>;
+  email_in?: Maybe<String[] | String>;
+  email_not_in?: Maybe<String[] | String>;
+  email_lt?: Maybe<String>;
+  email_lte?: Maybe<String>;
+  email_gt?: Maybe<String>;
+  email_gte?: Maybe<String>;
+  email_contains?: Maybe<String>;
+  email_not_contains?: Maybe<String>;
+  email_starts_with?: Maybe<String>;
+  email_not_starts_with?: Maybe<String>;
+  email_ends_with?: Maybe<String>;
+  email_not_ends_with?: Maybe<String>;
+  password?: Maybe<String>;
+  password_not?: Maybe<String>;
+  password_in?: Maybe<String[] | String>;
+  password_not_in?: Maybe<String[] | String>;
+  password_lt?: Maybe<String>;
+  password_lte?: Maybe<String>;
+  password_gt?: Maybe<String>;
+  password_gte?: Maybe<String>;
+  password_contains?: Maybe<String>;
+  password_not_contains?: Maybe<String>;
+  password_starts_with?: Maybe<String>;
+  password_not_starts_with?: Maybe<String>;
+  password_ends_with?: Maybe<String>;
+  password_not_ends_with?: Maybe<String>;
+  role?: Maybe<Role>;
+  role_not?: Maybe<Role>;
+  role_in?: Maybe<Role[] | Role>;
+  role_not_in?: Maybe<Role[] | Role>;
+  AND?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
+  OR?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
+  NOT?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
+}
+
+export interface IncidenceCreateWithoutUserInput {
+  id?: Maybe<ID_Input>;
+  latitude: Float;
+  longitude: Float;
+  comment: String;
+  state: String;
+  street: StreetCreateOneWithoutIncidencesInput;
+  gravity: GravityCreateOneWithoutIncidencesInput;
+  typeinc: IncidenceTypeCreateOneWithoutIncidencesInput;
+}
+
+export interface IncidenceUpdateManyWithoutGravityInput {
+  create?: Maybe<
+    IncidenceCreateWithoutGravityInput[] | IncidenceCreateWithoutGravityInput
+  >;
+  delete?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  connect?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  set?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  disconnect?: Maybe<IncidenceWhereUniqueInput[] | IncidenceWhereUniqueInput>;
+  update?: Maybe<
+    | IncidenceUpdateWithWhereUniqueWithoutGravityInput[]
+    | IncidenceUpdateWithWhereUniqueWithoutGravityInput
+  >;
+  upsert?: Maybe<
+    | IncidenceUpsertWithWhereUniqueWithoutGravityInput[]
+    | IncidenceUpsertWithWhereUniqueWithoutGravityInput
+  >;
+  deleteMany?: Maybe<IncidenceScalarWhereInput[] | IncidenceScalarWhereInput>;
+  updateMany?: Maybe<
+    | IncidenceUpdateManyWithWhereNestedInput[]
+    | IncidenceUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface EstablishmentWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  latitude?: Maybe<Float>;
+  latitude_not?: Maybe<Float>;
+  latitude_in?: Maybe<Float[] | Float>;
+  latitude_not_in?: Maybe<Float[] | Float>;
+  latitude_lt?: Maybe<Float>;
+  latitude_lte?: Maybe<Float>;
+  latitude_gt?: Maybe<Float>;
+  latitude_gte?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  longitude_not?: Maybe<Float>;
+  longitude_in?: Maybe<Float[] | Float>;
+  longitude_not_in?: Maybe<Float[] | Float>;
+  longitude_lt?: Maybe<Float>;
+  longitude_lte?: Maybe<Float>;
+  longitude_gt?: Maybe<Float>;
+  longitude_gte?: Maybe<Float>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  user?: Maybe<UserWhereInput>;
+  street?: Maybe<StreetWhereInput>;
+  Esttype?: Maybe<EstablishmentTypeWhereInput>;
+  assessments_every?: Maybe<AssessmentWhereInput>;
+  assessments_some?: Maybe<AssessmentWhereInput>;
+  assessments_none?: Maybe<AssessmentWhereInput>;
+  AND?: Maybe<EstablishmentWhereInput[] | EstablishmentWhereInput>;
+  OR?: Maybe<EstablishmentWhereInput[] | EstablishmentWhereInput>;
+  NOT?: Maybe<EstablishmentWhereInput[] | EstablishmentWhereInput>;
+}
+
+export interface AssessmentCreateWithoutUserInput {
+  id?: Maybe<ID_Input>;
+  score: Int;
+  description?: Maybe<String>;
+  establishment: EstablishmentCreateOneWithoutAssessmentsInput;
+}
 
 export interface NodeNode {
   id: ID_Output;
-}
-
-export interface UserEdge {
-  node: User;
-  cursor: String;
-}
-
-export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
-  node: <T = UserPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface UserEdgeSubscription
-  extends Promise<AsyncIterator<UserEdge>>,
-    Fragmentable {
-  node: <T = UserSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface BatchPayload {
-  count: Long;
-}
-
-export interface BatchPayloadPromise
-  extends Promise<BatchPayload>,
-    Fragmentable {
-  count: () => Promise<Long>;
-}
-
-export interface BatchPayloadSubscription
-  extends Promise<AsyncIterator<BatchPayload>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Long>>;
 }
 
 export interface UserPreviousValues {
@@ -264,31 +2913,6 @@ export interface UserPreviousValuesSubscription
   role: () => Promise<AsyncIterator<Role>>;
 }
 
-export interface UserSubscriptionPayload {
-  mutation: MutationType;
-  node: User;
-  updatedFields: String[];
-  previousValues: UserPreviousValues;
-}
-
-export interface UserSubscriptionPayloadPromise
-  extends Promise<UserSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = UserPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = UserPreviousValuesPromise>() => T;
-}
-
-export interface UserSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<UserSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = UserSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = UserPreviousValuesSubscription>() => T;
-}
-
 export interface User {
   id: ID_Output;
   email: String;
@@ -301,6 +2925,33 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   email: () => Promise<String>;
   password: () => Promise<String>;
   role: () => Promise<Role>;
+  difficulties: <T = FragmentableArray<Difficulty>>(args?: {
+    where?: DifficultyWhereInput;
+    orderBy?: DifficultyOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  assessments: <T = FragmentableArray<Assessment>>(args?: {
+    where?: AssessmentWhereInput;
+    orderBy?: AssessmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  incidences: <T = FragmentableArray<Incidence>>(args?: {
+    where?: IncidenceWhereInput;
+    orderBy?: IncidenceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
 export interface UserSubscription
@@ -310,6 +2961,33 @@ export interface UserSubscription
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
   role: () => Promise<AsyncIterator<Role>>;
+  difficulties: <T = Promise<AsyncIterator<DifficultySubscription>>>(args?: {
+    where?: DifficultyWhereInput;
+    orderBy?: DifficultyOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  assessments: <T = Promise<AsyncIterator<AssessmentSubscription>>>(args?: {
+    where?: AssessmentWhereInput;
+    orderBy?: AssessmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  incidences: <T = Promise<AsyncIterator<IncidenceSubscription>>>(args?: {
+    where?: IncidenceWhereInput;
+    orderBy?: IncidenceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
 export interface UserNullablePromise
@@ -319,6 +2997,207 @@ export interface UserNullablePromise
   email: () => Promise<String>;
   password: () => Promise<String>;
   role: () => Promise<Role>;
+  difficulties: <T = FragmentableArray<Difficulty>>(args?: {
+    where?: DifficultyWhereInput;
+    orderBy?: DifficultyOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  assessments: <T = FragmentableArray<Assessment>>(args?: {
+    where?: AssessmentWhereInput;
+    orderBy?: AssessmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  incidences: <T = FragmentableArray<Incidence>>(args?: {
+    where?: IncidenceWhereInput;
+    orderBy?: IncidenceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface City {
+  id: ID_Output;
+  name: String;
+}
+
+export interface CityPromise extends Promise<City>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  streets: <T = FragmentableArray<Street>>(args?: {
+    where?: StreetWhereInput;
+    orderBy?: StreetOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface CitySubscription
+  extends Promise<AsyncIterator<City>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  streets: <T = Promise<AsyncIterator<StreetSubscription>>>(args?: {
+    where?: StreetWhereInput;
+    orderBy?: StreetOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface CityNullablePromise
+  extends Promise<City | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  streets: <T = FragmentableArray<Street>>(args?: {
+    where?: StreetWhereInput;
+    orderBy?: StreetOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface AggregateCategory {
+  count: Int;
+}
+
+export interface AggregateCategoryPromise
+  extends Promise<AggregateCategory>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateCategorySubscription
+  extends Promise<AsyncIterator<AggregateCategory>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface CategoryEdge {
+  node: Category;
+  cursor: String;
+}
+
+export interface CategoryEdgePromise
+  extends Promise<CategoryEdge>,
+    Fragmentable {
+  node: <T = CategoryPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface CategoryEdgeSubscription
+  extends Promise<AsyncIterator<CategoryEdge>>,
+    Fragmentable {
+  node: <T = CategorySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface BatchPayload {
+  count: Long;
+}
+
+export interface BatchPayloadPromise
+  extends Promise<BatchPayload>,
+    Fragmentable {
+  count: () => Promise<Long>;
+}
+
+export interface BatchPayloadSubscription
+  extends Promise<AsyncIterator<BatchPayload>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Long>>;
+}
+
+export interface Difficulty {
+  id: ID_Output;
+  name: String;
+}
+
+export interface DifficultyPromise extends Promise<Difficulty>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  users: <T = FragmentableArray<User>>(args?: {
+    where?: UserWhereInput;
+    orderBy?: UserOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface DifficultySubscription
+  extends Promise<AsyncIterator<Difficulty>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  users: <T = Promise<AsyncIterator<UserSubscription>>>(args?: {
+    where?: UserWhereInput;
+    orderBy?: UserOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface DifficultyNullablePromise
+  extends Promise<Difficulty | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  users: <T = FragmentableArray<User>>(args?: {
+    where?: UserWhereInput;
+    orderBy?: UserOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface CategoryConnection {
+  pageInfo: PageInfo;
+  edges: CategoryEdge[];
+}
+
+export interface CategoryConnectionPromise
+  extends Promise<CategoryConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<CategoryEdge>>() => T;
+  aggregate: <T = AggregateCategoryPromise>() => T;
+}
+
+export interface CategoryConnectionSubscription
+  extends Promise<AsyncIterator<CategoryConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CategoryEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCategorySubscription>() => T;
 }
 
 export interface AggregateUser {
@@ -333,6 +3212,22 @@ export interface AggregateUserPromise
 
 export interface AggregateUserSubscription
   extends Promise<AsyncIterator<AggregateUser>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AggregateAssessment {
+  count: Int;
+}
+
+export interface AggregateAssessmentPromise
+  extends Promise<AggregateAssessment>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateAssessmentSubscription
+  extends Promise<AsyncIterator<AggregateAssessment>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -358,6 +3253,301 @@ export interface UserConnectionSubscription
   aggregate: <T = AggregateUserSubscription>() => T;
 }
 
+export interface AssessmentEdge {
+  node: Assessment;
+  cursor: String;
+}
+
+export interface AssessmentEdgePromise
+  extends Promise<AssessmentEdge>,
+    Fragmentable {
+  node: <T = AssessmentPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface AssessmentEdgeSubscription
+  extends Promise<AsyncIterator<AssessmentEdge>>,
+    Fragmentable {
+  node: <T = AssessmentSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface StreetEdge {
+  node: Street;
+  cursor: String;
+}
+
+export interface StreetEdgePromise extends Promise<StreetEdge>, Fragmentable {
+  node: <T = StreetPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface StreetEdgeSubscription
+  extends Promise<AsyncIterator<StreetEdge>>,
+    Fragmentable {
+  node: <T = StreetSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Assessment {
+  id: ID_Output;
+  score: Int;
+  description?: String;
+}
+
+export interface AssessmentPromise extends Promise<Assessment>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  score: () => Promise<Int>;
+  description: () => Promise<String>;
+  user: <T = UserPromise>() => T;
+  establishment: <T = EstablishmentPromise>() => T;
+}
+
+export interface AssessmentSubscription
+  extends Promise<AsyncIterator<Assessment>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  score: () => Promise<AsyncIterator<Int>>;
+  description: () => Promise<AsyncIterator<String>>;
+  user: <T = UserSubscription>() => T;
+  establishment: <T = EstablishmentSubscription>() => T;
+}
+
+export interface AssessmentNullablePromise
+  extends Promise<Assessment | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  score: () => Promise<Int>;
+  description: () => Promise<String>;
+  user: <T = UserPromise>() => T;
+  establishment: <T = EstablishmentPromise>() => T;
+}
+
+export interface AggregateIncidenceType {
+  count: Int;
+}
+
+export interface AggregateIncidenceTypePromise
+  extends Promise<AggregateIncidenceType>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateIncidenceTypeSubscription
+  extends Promise<AsyncIterator<AggregateIncidenceType>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AssessmentSubscriptionPayload {
+  mutation: MutationType;
+  node: Assessment;
+  updatedFields: String[];
+  previousValues: AssessmentPreviousValues;
+}
+
+export interface AssessmentSubscriptionPayloadPromise
+  extends Promise<AssessmentSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = AssessmentPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = AssessmentPreviousValuesPromise>() => T;
+}
+
+export interface AssessmentSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<AssessmentSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = AssessmentSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = AssessmentPreviousValuesSubscription>() => T;
+}
+
+export interface IncidenceTypeConnection {
+  pageInfo: PageInfo;
+  edges: IncidenceTypeEdge[];
+}
+
+export interface IncidenceTypeConnectionPromise
+  extends Promise<IncidenceTypeConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<IncidenceTypeEdge>>() => T;
+  aggregate: <T = AggregateIncidenceTypePromise>() => T;
+}
+
+export interface IncidenceTypeConnectionSubscription
+  extends Promise<AsyncIterator<IncidenceTypeConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<IncidenceTypeEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateIncidenceTypeSubscription>() => T;
+}
+
+export interface AssessmentPreviousValues {
+  id: ID_Output;
+  score: Int;
+  description?: String;
+}
+
+export interface AssessmentPreviousValuesPromise
+  extends Promise<AssessmentPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  score: () => Promise<Int>;
+  description: () => Promise<String>;
+}
+
+export interface AssessmentPreviousValuesSubscription
+  extends Promise<AsyncIterator<AssessmentPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  score: () => Promise<AsyncIterator<Int>>;
+  description: () => Promise<AsyncIterator<String>>;
+}
+
+export interface IncidenceEdge {
+  node: Incidence;
+  cursor: String;
+}
+
+export interface IncidenceEdgePromise
+  extends Promise<IncidenceEdge>,
+    Fragmentable {
+  node: <T = IncidencePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface IncidenceEdgeSubscription
+  extends Promise<AsyncIterator<IncidenceEdge>>,
+    Fragmentable {
+  node: <T = IncidenceSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface StreetSubscriptionPayload {
+  mutation: MutationType;
+  node: Street;
+  updatedFields: String[];
+  previousValues: StreetPreviousValues;
+}
+
+export interface StreetSubscriptionPayloadPromise
+  extends Promise<StreetSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = StreetPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = StreetPreviousValuesPromise>() => T;
+}
+
+export interface StreetSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<StreetSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = StreetSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = StreetPreviousValuesSubscription>() => T;
+}
+
+export interface AggregateGravity {
+  count: Int;
+}
+
+export interface AggregateGravityPromise
+  extends Promise<AggregateGravity>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateGravitySubscription
+  extends Promise<AsyncIterator<AggregateGravity>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface CategorySubscriptionPayload {
+  mutation: MutationType;
+  node: Category;
+  updatedFields: String[];
+  previousValues: CategoryPreviousValues;
+}
+
+export interface CategorySubscriptionPayloadPromise
+  extends Promise<CategorySubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = CategoryPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = CategoryPreviousValuesPromise>() => T;
+}
+
+export interface CategorySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<CategorySubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = CategorySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = CategoryPreviousValuesSubscription>() => T;
+}
+
+export interface GravityConnection {
+  pageInfo: PageInfo;
+  edges: GravityEdge[];
+}
+
+export interface GravityConnectionPromise
+  extends Promise<GravityConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<GravityEdge>>() => T;
+  aggregate: <T = AggregateGravityPromise>() => T;
+}
+
+export interface GravityConnectionSubscription
+  extends Promise<AsyncIterator<GravityConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<GravityEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateGravitySubscription>() => T;
+}
+
+export interface CategoryPreviousValues {
+  id: ID_Output;
+  name: String;
+}
+
+export interface CategoryPreviousValuesPromise
+  extends Promise<CategoryPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+}
+
+export interface CategoryPreviousValuesSubscription
+  extends Promise<AsyncIterator<CategoryPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateEstablishmentType {
+  count: Int;
+}
+
+export interface AggregateEstablishmentTypePromise
+  extends Promise<AggregateEstablishmentType>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateEstablishmentTypeSubscription
+  extends Promise<AsyncIterator<AggregateEstablishmentType>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
 export interface PageInfo {
   hasNextPage: Boolean;
   hasPreviousPage: Boolean;
@@ -381,6 +3571,1126 @@ export interface PageInfoSubscription
   endCursor: () => Promise<AsyncIterator<String>>;
 }
 
+export interface EstablishmentTypeConnection {
+  pageInfo: PageInfo;
+  edges: EstablishmentTypeEdge[];
+}
+
+export interface EstablishmentTypeConnectionPromise
+  extends Promise<EstablishmentTypeConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<EstablishmentTypeEdge>>() => T;
+  aggregate: <T = AggregateEstablishmentTypePromise>() => T;
+}
+
+export interface EstablishmentTypeConnectionSubscription
+  extends Promise<AsyncIterator<EstablishmentTypeConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<EstablishmentTypeEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateEstablishmentTypeSubscription>() => T;
+}
+
+export interface CitySubscriptionPayload {
+  mutation: MutationType;
+  node: City;
+  updatedFields: String[];
+  previousValues: CityPreviousValues;
+}
+
+export interface CitySubscriptionPayloadPromise
+  extends Promise<CitySubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = CityPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = CityPreviousValuesPromise>() => T;
+}
+
+export interface CitySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<CitySubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = CitySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = CityPreviousValuesSubscription>() => T;
+}
+
+export interface AggregateEstablishment {
+  count: Int;
+}
+
+export interface AggregateEstablishmentPromise
+  extends Promise<AggregateEstablishment>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateEstablishmentSubscription
+  extends Promise<AsyncIterator<AggregateEstablishment>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface CityPreviousValues {
+  id: ID_Output;
+  name: String;
+}
+
+export interface CityPreviousValuesPromise
+  extends Promise<CityPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+}
+
+export interface CityPreviousValuesSubscription
+  extends Promise<AsyncIterator<CityPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+}
+
+export interface EstablishmentConnection {
+  pageInfo: PageInfo;
+  edges: EstablishmentEdge[];
+}
+
+export interface EstablishmentConnectionPromise
+  extends Promise<EstablishmentConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<EstablishmentEdge>>() => T;
+  aggregate: <T = AggregateEstablishmentPromise>() => T;
+}
+
+export interface EstablishmentConnectionSubscription
+  extends Promise<AsyncIterator<EstablishmentConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<EstablishmentEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateEstablishmentSubscription>() => T;
+}
+
+export interface AssessmentConnection {
+  pageInfo: PageInfo;
+  edges: AssessmentEdge[];
+}
+
+export interface AssessmentConnectionPromise
+  extends Promise<AssessmentConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<AssessmentEdge>>() => T;
+  aggregate: <T = AggregateAssessmentPromise>() => T;
+}
+
+export interface AssessmentConnectionSubscription
+  extends Promise<AsyncIterator<AssessmentConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<AssessmentEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateAssessmentSubscription>() => T;
+}
+
+export interface DifficultyEdge {
+  node: Difficulty;
+  cursor: String;
+}
+
+export interface DifficultyEdgePromise
+  extends Promise<DifficultyEdge>,
+    Fragmentable {
+  node: <T = DifficultyPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface DifficultyEdgeSubscription
+  extends Promise<AsyncIterator<DifficultyEdge>>,
+    Fragmentable {
+  node: <T = DifficultySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface DifficultySubscriptionPayload {
+  mutation: MutationType;
+  node: Difficulty;
+  updatedFields: String[];
+  previousValues: DifficultyPreviousValues;
+}
+
+export interface DifficultySubscriptionPayloadPromise
+  extends Promise<DifficultySubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = DifficultyPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = DifficultyPreviousValuesPromise>() => T;
+}
+
+export interface DifficultySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<DifficultySubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = DifficultySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = DifficultyPreviousValuesSubscription>() => T;
+}
+
+export interface AggregateCity {
+  count: Int;
+}
+
+export interface AggregateCityPromise
+  extends Promise<AggregateCity>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateCitySubscription
+  extends Promise<AsyncIterator<AggregateCity>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface DifficultyPreviousValues {
+  id: ID_Output;
+  name: String;
+}
+
+export interface DifficultyPreviousValuesPromise
+  extends Promise<DifficultyPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+}
+
+export interface DifficultyPreviousValuesSubscription
+  extends Promise<AsyncIterator<DifficultyPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+}
+
+export interface CityConnection {
+  pageInfo: PageInfo;
+  edges: CityEdge[];
+}
+
+export interface CityConnectionPromise
+  extends Promise<CityConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<CityEdge>>() => T;
+  aggregate: <T = AggregateCityPromise>() => T;
+}
+
+export interface CityConnectionSubscription
+  extends Promise<AsyncIterator<CityConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CityEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCitySubscription>() => T;
+}
+
+export interface EstablishmentType {
+  id: ID_Output;
+  name: String;
+}
+
+export interface EstablishmentTypePromise
+  extends Promise<EstablishmentType>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  establishment: <T = FragmentableArray<Establishment>>(args?: {
+    where?: EstablishmentWhereInput;
+    orderBy?: EstablishmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface EstablishmentTypeSubscription
+  extends Promise<AsyncIterator<EstablishmentType>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  establishment: <
+    T = Promise<AsyncIterator<EstablishmentSubscription>>
+  >(args?: {
+    where?: EstablishmentWhereInput;
+    orderBy?: EstablishmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface EstablishmentTypeNullablePromise
+  extends Promise<EstablishmentType | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  establishment: <T = FragmentableArray<Establishment>>(args?: {
+    where?: EstablishmentWhereInput;
+    orderBy?: EstablishmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface UserSubscriptionPayload {
+  mutation: MutationType;
+  node: User;
+  updatedFields: String[];
+  previousValues: UserPreviousValues;
+}
+
+export interface UserSubscriptionPayloadPromise
+  extends Promise<UserSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = UserPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = UserPreviousValuesPromise>() => T;
+}
+
+export interface UserSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<UserSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = UserSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = UserPreviousValuesSubscription>() => T;
+}
+
+export interface EstablishmentSubscriptionPayload {
+  mutation: MutationType;
+  node: Establishment;
+  updatedFields: String[];
+  previousValues: EstablishmentPreviousValues;
+}
+
+export interface EstablishmentSubscriptionPayloadPromise
+  extends Promise<EstablishmentSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = EstablishmentPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = EstablishmentPreviousValuesPromise>() => T;
+}
+
+export interface EstablishmentSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<EstablishmentSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = EstablishmentSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = EstablishmentPreviousValuesSubscription>() => T;
+}
+
+export interface AggregateStreet {
+  count: Int;
+}
+
+export interface AggregateStreetPromise
+  extends Promise<AggregateStreet>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateStreetSubscription
+  extends Promise<AsyncIterator<AggregateStreet>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface EstablishmentPreviousValues {
+  id: ID_Output;
+  latitude: Float;
+  longitude: Float;
+  name: String;
+  description?: String;
+}
+
+export interface EstablishmentPreviousValuesPromise
+  extends Promise<EstablishmentPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  latitude: () => Promise<Float>;
+  longitude: () => Promise<Float>;
+  name: () => Promise<String>;
+  description: () => Promise<String>;
+}
+
+export interface EstablishmentPreviousValuesSubscription
+  extends Promise<AsyncIterator<EstablishmentPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  latitude: () => Promise<AsyncIterator<Float>>;
+  longitude: () => Promise<AsyncIterator<Float>>;
+  name: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+}
+
+export interface IncidenceTypeEdge {
+  node: IncidenceType;
+  cursor: String;
+}
+
+export interface IncidenceTypeEdgePromise
+  extends Promise<IncidenceTypeEdge>,
+    Fragmentable {
+  node: <T = IncidenceTypePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface IncidenceTypeEdgeSubscription
+  extends Promise<AsyncIterator<IncidenceTypeEdge>>,
+    Fragmentable {
+  node: <T = IncidenceTypeSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Establishment {
+  id: ID_Output;
+  latitude: Float;
+  longitude: Float;
+  name: String;
+  description?: String;
+}
+
+export interface EstablishmentPromise
+  extends Promise<Establishment>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  latitude: () => Promise<Float>;
+  longitude: () => Promise<Float>;
+  name: () => Promise<String>;
+  description: () => Promise<String>;
+  user: <T = UserPromise>() => T;
+  street: <T = StreetPromise>() => T;
+  Esttype: <T = EstablishmentTypePromise>() => T;
+  assessments: <T = FragmentableArray<Assessment>>(args?: {
+    where?: AssessmentWhereInput;
+    orderBy?: AssessmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface EstablishmentSubscription
+  extends Promise<AsyncIterator<Establishment>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  latitude: () => Promise<AsyncIterator<Float>>;
+  longitude: () => Promise<AsyncIterator<Float>>;
+  name: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  user: <T = UserSubscription>() => T;
+  street: <T = StreetSubscription>() => T;
+  Esttype: <T = EstablishmentTypeSubscription>() => T;
+  assessments: <T = Promise<AsyncIterator<AssessmentSubscription>>>(args?: {
+    where?: AssessmentWhereInput;
+    orderBy?: AssessmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface EstablishmentNullablePromise
+  extends Promise<Establishment | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  latitude: () => Promise<Float>;
+  longitude: () => Promise<Float>;
+  name: () => Promise<String>;
+  description: () => Promise<String>;
+  user: <T = UserPromise>() => T;
+  street: <T = StreetPromise>() => T;
+  Esttype: <T = EstablishmentTypePromise>() => T;
+  assessments: <T = FragmentableArray<Assessment>>(args?: {
+    where?: AssessmentWhereInput;
+    orderBy?: AssessmentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface IncidenceConnection {
+  pageInfo: PageInfo;
+  edges: IncidenceEdge[];
+}
+
+export interface IncidenceConnectionPromise
+  extends Promise<IncidenceConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<IncidenceEdge>>() => T;
+  aggregate: <T = AggregateIncidencePromise>() => T;
+}
+
+export interface IncidenceConnectionSubscription
+  extends Promise<AsyncIterator<IncidenceConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<IncidenceEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateIncidenceSubscription>() => T;
+}
+
+export interface EstablishmentTypeSubscriptionPayload {
+  mutation: MutationType;
+  node: EstablishmentType;
+  updatedFields: String[];
+  previousValues: EstablishmentTypePreviousValues;
+}
+
+export interface EstablishmentTypeSubscriptionPayloadPromise
+  extends Promise<EstablishmentTypeSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = EstablishmentTypePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = EstablishmentTypePreviousValuesPromise>() => T;
+}
+
+export interface EstablishmentTypeSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<EstablishmentTypeSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = EstablishmentTypeSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = EstablishmentTypePreviousValuesSubscription>() => T;
+}
+
+export interface Street {
+  id: ID_Output;
+  name: String;
+}
+
+export interface StreetPromise extends Promise<Street>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  city: <T = CityPromise>() => T;
+  incidences: <T = FragmentableArray<Incidence>>(args?: {
+    where?: IncidenceWhereInput;
+    orderBy?: IncidenceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface StreetSubscription
+  extends Promise<AsyncIterator<Street>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  city: <T = CitySubscription>() => T;
+  incidences: <T = Promise<AsyncIterator<IncidenceSubscription>>>(args?: {
+    where?: IncidenceWhereInput;
+    orderBy?: IncidenceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface StreetNullablePromise
+  extends Promise<Street | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  city: <T = CityPromise>() => T;
+  incidences: <T = FragmentableArray<Incidence>>(args?: {
+    where?: IncidenceWhereInput;
+    orderBy?: IncidenceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface EstablishmentTypePreviousValues {
+  id: ID_Output;
+  name: String;
+}
+
+export interface EstablishmentTypePreviousValuesPromise
+  extends Promise<EstablishmentTypePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+}
+
+export interface EstablishmentTypePreviousValuesSubscription
+  extends Promise<AsyncIterator<EstablishmentTypePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+}
+
+export interface StreetPreviousValues {
+  id: ID_Output;
+  name: String;
+}
+
+export interface StreetPreviousValuesPromise
+  extends Promise<StreetPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+}
+
+export interface StreetPreviousValuesSubscription
+  extends Promise<AsyncIterator<StreetPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Category {
+  id: ID_Output;
+  name: String;
+}
+
+export interface CategoryPromise extends Promise<Category>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  inctypes: <T = FragmentableArray<IncidenceType>>(args?: {
+    where?: IncidenceTypeWhereInput;
+    orderBy?: IncidenceTypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface CategorySubscription
+  extends Promise<AsyncIterator<Category>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  inctypes: <T = Promise<AsyncIterator<IncidenceTypeSubscription>>>(args?: {
+    where?: IncidenceTypeWhereInput;
+    orderBy?: IncidenceTypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface CategoryNullablePromise
+  extends Promise<Category | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  inctypes: <T = FragmentableArray<IncidenceType>>(args?: {
+    where?: IncidenceTypeWhereInput;
+    orderBy?: IncidenceTypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface AggregateDifficulty {
+  count: Int;
+}
+
+export interface AggregateDifficultyPromise
+  extends Promise<AggregateDifficulty>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateDifficultySubscription
+  extends Promise<AsyncIterator<AggregateDifficulty>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface GravitySubscriptionPayload {
+  mutation: MutationType;
+  node: Gravity;
+  updatedFields: String[];
+  previousValues: GravityPreviousValues;
+}
+
+export interface GravitySubscriptionPayloadPromise
+  extends Promise<GravitySubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = GravityPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = GravityPreviousValuesPromise>() => T;
+}
+
+export interface GravitySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<GravitySubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = GravitySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = GravityPreviousValuesSubscription>() => T;
+}
+
+export interface CityEdge {
+  node: City;
+  cursor: String;
+}
+
+export interface CityEdgePromise extends Promise<CityEdge>, Fragmentable {
+  node: <T = CityPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface CityEdgeSubscription
+  extends Promise<AsyncIterator<CityEdge>>,
+    Fragmentable {
+  node: <T = CitySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface GravityPreviousValues {
+  id: ID_Output;
+  name: String;
+}
+
+export interface GravityPreviousValuesPromise
+  extends Promise<GravityPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+}
+
+export interface GravityPreviousValuesSubscription
+  extends Promise<AsyncIterator<GravityPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+}
+
+export interface UserEdge {
+  node: User;
+  cursor: String;
+}
+
+export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
+  node: <T = UserPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface UserEdgeSubscription
+  extends Promise<AsyncIterator<UserEdge>>,
+    Fragmentable {
+  node: <T = UserSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface IncidenceType {
+  id: ID_Output;
+  name: String;
+}
+
+export interface IncidenceTypePromise
+  extends Promise<IncidenceType>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  category: <T = CategoryPromise>() => T;
+  incidences: <T = FragmentableArray<Incidence>>(args?: {
+    where?: IncidenceWhereInput;
+    orderBy?: IncidenceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface IncidenceTypeSubscription
+  extends Promise<AsyncIterator<IncidenceType>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  category: <T = CategorySubscription>() => T;
+  incidences: <T = Promise<AsyncIterator<IncidenceSubscription>>>(args?: {
+    where?: IncidenceWhereInput;
+    orderBy?: IncidenceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface IncidenceTypeNullablePromise
+  extends Promise<IncidenceType | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  category: <T = CategoryPromise>() => T;
+  incidences: <T = FragmentableArray<Incidence>>(args?: {
+    where?: IncidenceWhereInput;
+    orderBy?: IncidenceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface AggregateIncidence {
+  count: Int;
+}
+
+export interface AggregateIncidencePromise
+  extends Promise<AggregateIncidence>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateIncidenceSubscription
+  extends Promise<AsyncIterator<AggregateIncidence>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface IncidenceSubscriptionPayload {
+  mutation: MutationType;
+  node: Incidence;
+  updatedFields: String[];
+  previousValues: IncidencePreviousValues;
+}
+
+export interface IncidenceSubscriptionPayloadPromise
+  extends Promise<IncidenceSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = IncidencePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = IncidencePreviousValuesPromise>() => T;
+}
+
+export interface IncidenceSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<IncidenceSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = IncidenceSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = IncidencePreviousValuesSubscription>() => T;
+}
+
+export interface EstablishmentTypeEdge {
+  node: EstablishmentType;
+  cursor: String;
+}
+
+export interface EstablishmentTypeEdgePromise
+  extends Promise<EstablishmentTypeEdge>,
+    Fragmentable {
+  node: <T = EstablishmentTypePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface EstablishmentTypeEdgeSubscription
+  extends Promise<AsyncIterator<EstablishmentTypeEdge>>,
+    Fragmentable {
+  node: <T = EstablishmentTypeSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface DifficultyConnection {
+  pageInfo: PageInfo;
+  edges: DifficultyEdge[];
+}
+
+export interface DifficultyConnectionPromise
+  extends Promise<DifficultyConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<DifficultyEdge>>() => T;
+  aggregate: <T = AggregateDifficultyPromise>() => T;
+}
+
+export interface DifficultyConnectionSubscription
+  extends Promise<AsyncIterator<DifficultyConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<DifficultyEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateDifficultySubscription>() => T;
+}
+
+export interface IncidenceTypePreviousValues {
+  id: ID_Output;
+  name: String;
+}
+
+export interface IncidenceTypePreviousValuesPromise
+  extends Promise<IncidenceTypePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+}
+
+export interface IncidenceTypePreviousValuesSubscription
+  extends Promise<AsyncIterator<IncidenceTypePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+}
+
+export interface IncidenceTypeSubscriptionPayload {
+  mutation: MutationType;
+  node: IncidenceType;
+  updatedFields: String[];
+  previousValues: IncidenceTypePreviousValues;
+}
+
+export interface IncidenceTypeSubscriptionPayloadPromise
+  extends Promise<IncidenceTypeSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = IncidenceTypePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = IncidenceTypePreviousValuesPromise>() => T;
+}
+
+export interface IncidenceTypeSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<IncidenceTypeSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = IncidenceTypeSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = IncidenceTypePreviousValuesSubscription>() => T;
+}
+
+export interface Gravity {
+  id: ID_Output;
+  name: String;
+}
+
+export interface GravityPromise extends Promise<Gravity>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  incidences: <T = FragmentableArray<Incidence>>(args?: {
+    where?: IncidenceWhereInput;
+    orderBy?: IncidenceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface GravitySubscription
+  extends Promise<AsyncIterator<Gravity>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  incidences: <T = Promise<AsyncIterator<IncidenceSubscription>>>(args?: {
+    where?: IncidenceWhereInput;
+    orderBy?: IncidenceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface GravityNullablePromise
+  extends Promise<Gravity | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  incidences: <T = FragmentableArray<Incidence>>(args?: {
+    where?: IncidenceWhereInput;
+    orderBy?: IncidenceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface IncidencePreviousValues {
+  id: ID_Output;
+  latitude: Float;
+  longitude: Float;
+  comment: String;
+  state: String;
+}
+
+export interface IncidencePreviousValuesPromise
+  extends Promise<IncidencePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  latitude: () => Promise<Float>;
+  longitude: () => Promise<Float>;
+  comment: () => Promise<String>;
+  state: () => Promise<String>;
+}
+
+export interface IncidencePreviousValuesSubscription
+  extends Promise<AsyncIterator<IncidencePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  latitude: () => Promise<AsyncIterator<Float>>;
+  longitude: () => Promise<AsyncIterator<Float>>;
+  comment: () => Promise<AsyncIterator<String>>;
+  state: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Incidence {
+  id: ID_Output;
+  latitude: Float;
+  longitude: Float;
+  comment: String;
+  state: String;
+}
+
+export interface IncidencePromise extends Promise<Incidence>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  latitude: () => Promise<Float>;
+  longitude: () => Promise<Float>;
+  comment: () => Promise<String>;
+  state: () => Promise<String>;
+  street: <T = StreetPromise>() => T;
+  user: <T = UserPromise>() => T;
+  gravity: <T = GravityPromise>() => T;
+  typeinc: <T = IncidenceTypePromise>() => T;
+}
+
+export interface IncidenceSubscription
+  extends Promise<AsyncIterator<Incidence>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  latitude: () => Promise<AsyncIterator<Float>>;
+  longitude: () => Promise<AsyncIterator<Float>>;
+  comment: () => Promise<AsyncIterator<String>>;
+  state: () => Promise<AsyncIterator<String>>;
+  street: <T = StreetSubscription>() => T;
+  user: <T = UserSubscription>() => T;
+  gravity: <T = GravitySubscription>() => T;
+  typeinc: <T = IncidenceTypeSubscription>() => T;
+}
+
+export interface IncidenceNullablePromise
+  extends Promise<Incidence | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  latitude: () => Promise<Float>;
+  longitude: () => Promise<Float>;
+  comment: () => Promise<String>;
+  state: () => Promise<String>;
+  street: <T = StreetPromise>() => T;
+  user: <T = UserPromise>() => T;
+  gravity: <T = GravityPromise>() => T;
+  typeinc: <T = IncidenceTypePromise>() => T;
+}
+
+export interface EstablishmentEdge {
+  node: Establishment;
+  cursor: String;
+}
+
+export interface EstablishmentEdgePromise
+  extends Promise<EstablishmentEdge>,
+    Fragmentable {
+  node: <T = EstablishmentPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface EstablishmentEdgeSubscription
+  extends Promise<AsyncIterator<EstablishmentEdge>>,
+    Fragmentable {
+  node: <T = EstablishmentSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface GravityEdge {
+  node: Gravity;
+  cursor: String;
+}
+
+export interface GravityEdgePromise extends Promise<GravityEdge>, Fragmentable {
+  node: <T = GravityPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface GravityEdgeSubscription
+  extends Promise<AsyncIterator<GravityEdge>>,
+    Fragmentable {
+  node: <T = GravitySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface StreetConnection {
+  pageInfo: PageInfo;
+  edges: StreetEdge[];
+}
+
+export interface StreetConnectionPromise
+  extends Promise<StreetConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<StreetEdge>>() => T;
+  aggregate: <T = AggregateStreetPromise>() => T;
+}
+
+export interface StreetConnectionSubscription
+  extends Promise<AsyncIterator<StreetConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<StreetEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateStreetSubscription>() => T;
+}
+
+/*
+The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).
+*/
+export type Float = number;
+
+export type Long = string;
+
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
 */
@@ -388,16 +4698,14 @@ export type ID_Input = string | number;
 export type ID_Output = string;
 
 /*
-The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
-*/
-export type String = string;
-
-export type Long = string;
-
-/*
 The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
 */
 export type Int = number;
+
+/*
+The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
+*/
+export type String = string;
 
 /*
 The `Boolean` scalar type represents `true` or `false`.
@@ -414,7 +4722,47 @@ export const models: Model[] = [
     embedded: false
   },
   {
+    name: "Difficulty",
+    embedded: false
+  },
+  {
     name: "User",
+    embedded: false
+  },
+  {
+    name: "Category",
+    embedded: false
+  },
+  {
+    name: "IncidenceType",
+    embedded: false
+  },
+  {
+    name: "Gravity",
+    embedded: false
+  },
+  {
+    name: "City",
+    embedded: false
+  },
+  {
+    name: "Street",
+    embedded: false
+  },
+  {
+    name: "Incidence",
+    embedded: false
+  },
+  {
+    name: "EstablishmentType",
+    embedded: false
+  },
+  {
+    name: "Establishment",
+    embedded: false
+  },
+  {
+    name: "Assessment",
     embedded: false
   }
 ];

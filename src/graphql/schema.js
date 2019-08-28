@@ -21,9 +21,15 @@ const typeDefs = gql`
     password: String! 
   }
 
+  input UserInput {
+    email: String! @constraint(pattern: "^[0-9a-zA-Z]*$", length:50)
+    password: String!
+    role: Role!
+  }
+
   type Mutation {
     login(input: Login): String
-    createUser(email: String!, password: String!, role: Role!): User 
+    createUser(input: UserInput): User 
   }
 
   type User {

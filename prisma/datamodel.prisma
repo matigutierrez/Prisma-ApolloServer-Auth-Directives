@@ -4,9 +4,88 @@ enum Role {
   USER
 }
 
+type Difficulty {
+  id: ID! @id
+  name: String!
+  users: [User!]!
+}
+
 type User {
   id: ID! @id
   email: String! @unique
   password: String!
   role: Role! @default(value: USER)
+  difficulties: [Difficulty!]! @relation(link: TABLE)
+  assessments: [Assessment!]!
+  incidences: [Incidence!]!
+}
+
+type Category {
+  id: ID! @id
+  name: String!
+  inctypes: [IncidenceType!]!
+}
+
+type IncidenceType {
+  id: ID! @id
+  name: String!
+  category: Category! @relation(link: INLINE)
+  incidences: [Incidence!]!
+}
+
+type Gravity {
+  id: ID! @id
+  name: String!
+  incidences: [Incidence!]!
+}
+
+type City {
+  id: ID! @id
+  name: String!
+  streets: [Street!]!
+}
+
+type Street {
+  id: ID! @id
+  name: String!
+  city: City! @relation(link: INLINE)
+  incidences: [Incidence!]!
+}
+
+type Incidence {
+  id: ID! @id
+  latitude: Float!
+  longitude: Float!
+  comment: String!
+  state: String!
+  street: Street! @relation(link: INLINE)
+  user: User! @relation(link: INLINE)
+  gravity: Gravity! @relation(link: INLINE)
+  typeinc: IncidenceType! @relation(link: INLINE)
+}
+
+type EstablishmentType {
+  id: ID! @id
+  name: String!
+  establishment: [Establishment!]!
+}
+
+type Establishment {
+  id: ID! @id
+  latitude: Float!
+  longitude: Float!
+  name: String!
+  description: String
+  user: User! @relation(link: INLINE)
+  street: Street! @relation(link: INLINE)
+  Esttype: EstablishmentType! @relation(link: INLINE)
+  assessments: [Assessment!]!
+}
+
+type Assessment {
+  id: ID! @id
+  score: Int!
+  description: String
+  user: User! @relation(link: INLINE)
+  establishment: Establishment! @relation(link: INLINE)
 }
